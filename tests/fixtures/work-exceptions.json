@@ -1,0 +1,273 @@
+{
+  "schema": "absenly/fixture-work-exceptions/v1",
+  "meta": {
+    "source": "hand-built-work-exceptions",
+    "generated_at": "2026-10-20T15:36:51+07:00",
+    "note": "Ledger piket/overtime. Overlap setengah terbuka [start,end); recap normal tidak memakai tabel ini."
+  },
+  "employees": [
+    "00123",
+    "A-100",
+    "EDGE-1",
+    "U-24"
+  ],
+  "valid": [
+    {
+      "id_number": "00123",
+      "kind": "night_shift",
+      "start_date": "2026-10-05",
+      "start_time": "21:00:00",
+      "end_date": "2026-10-06",
+      "end_time": "07:00:00",
+      "note": "Piket"
+    },
+    {
+      "id_number": "A-100",
+      "kind": "overtime",
+      "start_date": "2026-10-06",
+      "start_time": "16:00:00",
+      "end_date": "2026-10-06",
+      "end_time": "18:00:00",
+      "note": "Lembur"
+    },
+    {
+      "id_number": "EDGE-1",
+      "kind": "holiday_work",
+      "start_date": "2026-10-11",
+      "start_time": "07:00:00",
+      "end_date": "2026-10-11",
+      "end_time": "12:00:00",
+      "note": "Kerja Minggu"
+    },
+    {
+      "id_number": "U-24",
+      "kind": "other",
+      "start_date": "2026-10-07",
+      "start_time": "12:00:00",
+      "end_date": "2026-10-07",
+      "end_time": "13:00:00",
+      "note": null
+    }
+  ],
+  "boundary_non_overlap": [
+    {
+      "id_number": "A-100",
+      "kind": "overtime",
+      "start_date": "2026-10-07",
+      "start_time": "16:00:00",
+      "end_date": "2026-10-07",
+      "end_time": "17:00:00"
+    },
+    {
+      "id_number": "A-100",
+      "kind": "overtime",
+      "start_date": "2026-10-07",
+      "start_time": "17:00:00",
+      "end_date": "2026-10-07",
+      "end_time": "18:00:00"
+    }
+  ],
+  "invalid": [
+    {
+      "input": {
+        "id_number": "00123",
+        "kind": "night_shift",
+        "start_date": "2026-10-06",
+        "start_time": "06:00:00",
+        "end_date": "2026-10-06",
+        "end_time": "08:00:00"
+      },
+      "code": "WORK_EXCEPTION_OVERLAP"
+    },
+    {
+      "input": {
+        "id_number": "A-100",
+        "kind": "overtime",
+        "start_date": "2026-10-07",
+        "start_time": "17:00:00",
+        "end_date": "2026-10-07",
+        "end_time": "16:00:00"
+      },
+      "code": "INVALID_ARGS"
+    },
+    {
+      "input": {
+        "id_number": "EDGE-1",
+        "kind": "sick_leave",
+        "start_date": "2026-10-12",
+        "start_time": "07:00:00",
+        "end_date": "2026-10-12",
+        "end_time": "12:00:00"
+      },
+      "code": "WORK_EXCEPTION_KIND"
+    },
+    {
+      "input": {
+        "id_number": "NOPE",
+        "kind": "other",
+        "start_date": "2026-10-12",
+        "start_time": "07:00:00",
+        "end_date": "2026-10-12",
+        "end_time": "08:00:00"
+      },
+      "code": "UNKNOWN_EMPLOYEE"
+    },
+    {
+      "input": {
+        "id_number": "U-24",
+        "kind": "other",
+        "start_date": "2026-10-07",
+        "start_time": "24:00:00",
+        "end_date": "2026-10-07",
+        "end_time": "25:00:00"
+      },
+      "code": "INVALID_ARGS"
+    },
+    {
+      "input": {
+        "id_number": "U-24",
+        "kind": "other",
+        "start_date": "2026-02-30",
+        "start_time": "08:00:00",
+        "end_date": "2026-02-30",
+        "end_time": "09:00:00"
+      },
+      "code": "INVALID_ARGS"
+    }
+  ],
+  "recap_unaffected": {
+    "schedule": {
+      "MONDAY": {
+        "in": "07:00",
+        "out": "16:00"
+      },
+      "TUESDAY": {
+        "in": "07:00",
+        "out": "16:00"
+      },
+      "WEDNESDAY": {
+        "in": "07:00",
+        "out": "16:00"
+      },
+      "THURSDAY": {
+        "in": "07:00",
+        "out": "16:00"
+      },
+      "FRIDAY": {
+        "in": "07:00",
+        "out": "16:00"
+      },
+      "SATURDAY": {
+        "in": "07:00",
+        "out": "12:00"
+      },
+      "SUNDAY": null
+    },
+    "attendance": [
+      {
+        "uid": 41001,
+        "idNumber": "00123",
+        "name": "Dummy Budi & <Test>",
+        "date": "2026-10-05",
+        "time": "09:59:59",
+        "punch": 0,
+        "verify": 15
+      },
+      {
+        "uid": 41002,
+        "idNumber": "00123",
+        "name": "Dummy Budi & <Test>",
+        "date": "2026-10-05",
+        "time": "10:00:00",
+        "punch": 1,
+        "verify": 15
+      },
+      {
+        "uid": 41003,
+        "idNumber": "00123",
+        "name": "Dummy Budi & <Test>",
+        "date": "2026-10-06",
+        "time": "21:00:00",
+        "punch": 1,
+        "verify": 15
+      },
+      {
+        "uid": 41004,
+        "idNumber": "00123",
+        "name": "Dummy Budi & <Test>",
+        "date": "2026-10-07",
+        "time": "06:30:00",
+        "punch": 0,
+        "verify": 15
+      },
+      {
+        "uid": 41005,
+        "idNumber": "A-100",
+        "name": "Dummy Siti, S.Kom",
+        "date": "2026-10-06",
+        "time": "07:00:00",
+        "punch": 0,
+        "verify": 15
+      },
+      {
+        "uid": 41006,
+        "idNumber": "A-100",
+        "name": "Dummy Siti, S.Kom",
+        "date": "2026-10-06",
+        "time": "16:30:00",
+        "punch": 1,
+        "verify": 15
+      }
+    ],
+    "expected_daily": [
+      {
+        "date": "2026-10-05",
+        "id_number": "00123",
+        "name": "Dummy Budi & <Test>",
+        "in_time": "09:59:59",
+        "out_time": "10:00:00",
+        "late_minutes": 179,
+        "early_minutes": 360,
+        "is_workday": true,
+        "punches": 2,
+        "status": "telat"
+      },
+      {
+        "date": "2026-10-06",
+        "id_number": "00123",
+        "name": "Dummy Budi & <Test>",
+        "in_time": null,
+        "out_time": "21:00:00",
+        "late_minutes": null,
+        "early_minutes": 0,
+        "is_workday": true,
+        "punches": 1,
+        "status": "tanpa_masuk"
+      },
+      {
+        "date": "2026-10-06",
+        "id_number": "A-100",
+        "name": "Dummy Siti, S.Kom",
+        "in_time": "07:00:00",
+        "out_time": "16:30:00",
+        "late_minutes": 0,
+        "early_minutes": 0,
+        "is_workday": true,
+        "punches": 2,
+        "status": "lengkap"
+      },
+      {
+        "date": "2026-10-07",
+        "id_number": "00123",
+        "name": "Dummy Budi & <Test>",
+        "in_time": "06:30:00",
+        "out_time": null,
+        "late_minutes": 0,
+        "early_minutes": null,
+        "is_workday": true,
+        "punches": 1,
+        "status": "belum_pulang"
+      }
+    ]
+  }
+}

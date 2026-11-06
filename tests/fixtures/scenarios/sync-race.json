@@ -1,0 +1,420 @@
+{
+  "schema": "absenly/fixture-sync-scenario/v1",
+  "meta": {
+    "name": "sync-race-retry",
+    "note": "Sync awal 5 record, lalu buffer race 6/7 (retry), lalu 7/7; sync ulang harus idempotent."
+  },
+  "users": [
+    {
+      "uid": 501,
+      "idNumber": "9001",
+      "name": "Dummy Sync Satu",
+      "privilege": 0,
+      "card": 0,
+      "groupId": ""
+    },
+    {
+      "uid": 502,
+      "idNumber": "9002",
+      "name": "Dummy Sync Dua",
+      "privilege": 0,
+      "card": 0,
+      "groupId": ""
+    },
+    {
+      "uid": 503,
+      "idNumber": "9003",
+      "name": "Dummy Sync Tiga",
+      "privilege": 0,
+      "card": 0,
+      "groupId": ""
+    }
+  ],
+  "base_attendance": [
+    {
+      "uid": 61001,
+      "idNumber": "9001",
+      "name": "Dummy Sync Satu",
+      "date": "2026-10-05",
+      "time": "07:30:00",
+      "punch": 0,
+      "verify": 15
+    },
+    {
+      "uid": 61002,
+      "idNumber": "9001",
+      "name": "Dummy Sync Satu",
+      "date": "2026-10-05",
+      "time": "17:00:00",
+      "punch": 1,
+      "verify": 15
+    },
+    {
+      "uid": 61003,
+      "idNumber": "9002",
+      "name": "Dummy Sync Dua",
+      "date": "2026-10-05",
+      "time": "08:05:00",
+      "punch": 0,
+      "verify": 15
+    },
+    {
+      "uid": 61004,
+      "idNumber": "9002",
+      "name": "Dummy Sync Dua",
+      "date": "2026-10-05",
+      "time": "16:55:00",
+      "punch": 1,
+      "verify": 15
+    },
+    {
+      "uid": 61005,
+      "idNumber": "9003",
+      "name": "Dummy Sync Tiga",
+      "date": "2026-10-05",
+      "time": "12:00:00",
+      "punch": 0,
+      "verify": 15
+    }
+  ],
+  "live_attendance": [
+    {
+      "uid": 61001,
+      "idNumber": "9001",
+      "name": "Dummy Sync Satu",
+      "date": "2026-10-05",
+      "time": "07:30:00",
+      "punch": 0,
+      "verify": 15
+    },
+    {
+      "uid": 61002,
+      "idNumber": "9001",
+      "name": "Dummy Sync Satu",
+      "date": "2026-10-05",
+      "time": "17:00:00",
+      "punch": 1,
+      "verify": 15
+    },
+    {
+      "uid": 61003,
+      "idNumber": "9002",
+      "name": "Dummy Sync Dua",
+      "date": "2026-10-05",
+      "time": "08:05:00",
+      "punch": 0,
+      "verify": 15
+    },
+    {
+      "uid": 61004,
+      "idNumber": "9002",
+      "name": "Dummy Sync Dua",
+      "date": "2026-10-05",
+      "time": "16:55:00",
+      "punch": 1,
+      "verify": 15
+    },
+    {
+      "uid": 61005,
+      "idNumber": "9003",
+      "name": "Dummy Sync Tiga",
+      "date": "2026-10-05",
+      "time": "12:00:00",
+      "punch": 0,
+      "verify": 15
+    },
+    {
+      "uid": 61006,
+      "idNumber": "9002",
+      "name": "Dummy Sync Dua",
+      "date": "2026-10-05",
+      "time": "17:10:00",
+      "punch": 1,
+      "verify": 15
+    },
+    {
+      "uid": 61007,
+      "idNumber": "9003",
+      "name": "Dummy Sync Tiga",
+      "date": "2026-10-05",
+      "time": "13:00:00",
+      "punch": 1,
+      "verify": 15
+    }
+  ],
+  "steps": [
+    {
+      "name": "initial",
+      "counts": {
+        "users": 3,
+        "records": 5
+      },
+      "attendance": [
+        {
+          "uid": 61001,
+          "idNumber": "9001",
+          "name": "Dummy Sync Satu",
+          "date": "2026-10-05",
+          "time": "07:30:00",
+          "punch": 0,
+          "verify": 15
+        },
+        {
+          "uid": 61002,
+          "idNumber": "9001",
+          "name": "Dummy Sync Satu",
+          "date": "2026-10-05",
+          "time": "17:00:00",
+          "punch": 1,
+          "verify": 15
+        },
+        {
+          "uid": 61003,
+          "idNumber": "9002",
+          "name": "Dummy Sync Dua",
+          "date": "2026-10-05",
+          "time": "08:05:00",
+          "punch": 0,
+          "verify": 15
+        },
+        {
+          "uid": 61004,
+          "idNumber": "9002",
+          "name": "Dummy Sync Dua",
+          "date": "2026-10-05",
+          "time": "16:55:00",
+          "punch": 1,
+          "verify": 15
+        },
+        {
+          "uid": 61005,
+          "idNumber": "9003",
+          "name": "Dummy Sync Tiga",
+          "date": "2026-10-05",
+          "time": "12:00:00",
+          "punch": 0,
+          "verify": 15
+        }
+      ],
+      "expect": "ok"
+    },
+    {
+      "name": "race",
+      "counts": {
+        "users": 3,
+        "records": 7
+      },
+      "attendance": [
+        {
+          "uid": 61001,
+          "idNumber": "9001",
+          "name": "Dummy Sync Satu",
+          "date": "2026-10-05",
+          "time": "07:30:00",
+          "punch": 0,
+          "verify": 15
+        },
+        {
+          "uid": 61002,
+          "idNumber": "9001",
+          "name": "Dummy Sync Satu",
+          "date": "2026-10-05",
+          "time": "17:00:00",
+          "punch": 1,
+          "verify": 15
+        },
+        {
+          "uid": 61003,
+          "idNumber": "9002",
+          "name": "Dummy Sync Dua",
+          "date": "2026-10-05",
+          "time": "08:05:00",
+          "punch": 0,
+          "verify": 15
+        },
+        {
+          "uid": 61004,
+          "idNumber": "9002",
+          "name": "Dummy Sync Dua",
+          "date": "2026-10-05",
+          "time": "16:55:00",
+          "punch": 1,
+          "verify": 15
+        },
+        {
+          "uid": 61005,
+          "idNumber": "9003",
+          "name": "Dummy Sync Tiga",
+          "date": "2026-10-05",
+          "time": "12:00:00",
+          "punch": 0,
+          "verify": 15
+        },
+        {
+          "uid": 61006,
+          "idNumber": "9002",
+          "name": "Dummy Sync Dua",
+          "date": "2026-10-05",
+          "time": "17:10:00",
+          "punch": 1,
+          "verify": 15
+        }
+      ],
+      "expect": "ZK_COUNT_MISMATCH"
+    },
+    {
+      "name": "retry",
+      "counts": {
+        "users": 3,
+        "records": 7
+      },
+      "attendance": [
+        {
+          "uid": 61001,
+          "idNumber": "9001",
+          "name": "Dummy Sync Satu",
+          "date": "2026-10-05",
+          "time": "07:30:00",
+          "punch": 0,
+          "verify": 15
+        },
+        {
+          "uid": 61002,
+          "idNumber": "9001",
+          "name": "Dummy Sync Satu",
+          "date": "2026-10-05",
+          "time": "17:00:00",
+          "punch": 1,
+          "verify": 15
+        },
+        {
+          "uid": 61003,
+          "idNumber": "9002",
+          "name": "Dummy Sync Dua",
+          "date": "2026-10-05",
+          "time": "08:05:00",
+          "punch": 0,
+          "verify": 15
+        },
+        {
+          "uid": 61004,
+          "idNumber": "9002",
+          "name": "Dummy Sync Dua",
+          "date": "2026-10-05",
+          "time": "16:55:00",
+          "punch": 1,
+          "verify": 15
+        },
+        {
+          "uid": 61005,
+          "idNumber": "9003",
+          "name": "Dummy Sync Tiga",
+          "date": "2026-10-05",
+          "time": "12:00:00",
+          "punch": 0,
+          "verify": 15
+        },
+        {
+          "uid": 61006,
+          "idNumber": "9002",
+          "name": "Dummy Sync Dua",
+          "date": "2026-10-05",
+          "time": "17:10:00",
+          "punch": 1,
+          "verify": 15
+        },
+        {
+          "uid": 61007,
+          "idNumber": "9003",
+          "name": "Dummy Sync Tiga",
+          "date": "2026-10-05",
+          "time": "13:00:00",
+          "punch": 1,
+          "verify": 15
+        }
+      ],
+      "expect": "ok"
+    },
+    {
+      "name": "repeat",
+      "counts": {
+        "users": 3,
+        "records": 7
+      },
+      "attendance": [
+        {
+          "uid": 61001,
+          "idNumber": "9001",
+          "name": "Dummy Sync Satu",
+          "date": "2026-10-05",
+          "time": "07:30:00",
+          "punch": 0,
+          "verify": 15
+        },
+        {
+          "uid": 61002,
+          "idNumber": "9001",
+          "name": "Dummy Sync Satu",
+          "date": "2026-10-05",
+          "time": "17:00:00",
+          "punch": 1,
+          "verify": 15
+        },
+        {
+          "uid": 61003,
+          "idNumber": "9002",
+          "name": "Dummy Sync Dua",
+          "date": "2026-10-05",
+          "time": "08:05:00",
+          "punch": 0,
+          "verify": 15
+        },
+        {
+          "uid": 61004,
+          "idNumber": "9002",
+          "name": "Dummy Sync Dua",
+          "date": "2026-10-05",
+          "time": "16:55:00",
+          "punch": 1,
+          "verify": 15
+        },
+        {
+          "uid": 61005,
+          "idNumber": "9003",
+          "name": "Dummy Sync Tiga",
+          "date": "2026-10-05",
+          "time": "12:00:00",
+          "punch": 0,
+          "verify": 15
+        },
+        {
+          "uid": 61006,
+          "idNumber": "9002",
+          "name": "Dummy Sync Dua",
+          "date": "2026-10-05",
+          "time": "17:10:00",
+          "punch": 1,
+          "verify": 15
+        },
+        {
+          "uid": 61007,
+          "idNumber": "9003",
+          "name": "Dummy Sync Tiga",
+          "date": "2026-10-05",
+          "time": "13:00:00",
+          "punch": 1,
+          "verify": 15
+        }
+      ],
+      "expect": "ok"
+    }
+  ],
+  "expected": {
+    "attempts": 4,
+    "final_employees": 3,
+    "final_attendance": 7,
+    "after_repeat_attendance": 7,
+    "first_date": "2026-10-05",
+    "last_date": "2026-10-05"
+  }
+}

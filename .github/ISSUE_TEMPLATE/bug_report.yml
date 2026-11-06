@@ -1,0 +1,76 @@
+name: Bug report
+description: Something is broken or behaves differently than documented.
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for the report. **Do not** include passwords, the comm key, the relay
+        token, webhook secrets, or real employee names/PINs. For a security issue, use
+        the private channel in SECURITY.md instead.
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened
+      description: What you saw, and what you expected instead.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. run `app serve`
+        2. open /employees
+        3. ...
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: Output of `app --version`, or the git tag.
+    validations:
+      required: true
+  - type: dropdown
+    id: role
+    attributes:
+      label: Role
+      options:
+        - collector (next to the device)
+        - viewer (relay, read-only)
+        - not sure
+    validations:
+      required: true
+  - type: input
+    id: os
+    attributes:
+      label: OS and Bun version
+      placeholder: Windows 11, Bun 1.4.3
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - sync / device
+        - recap / export
+        - admin web
+        - employee page (/me)
+        - API /api/v1
+        - relay (collector/viewer)
+        - hooks / webhooks
+        - CLI
+        - build / docs
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs or output
+      description: Relevant `logs/YYYY-MM-DD.log` lines or CLI output, with secrets removed.
+      render: text
+    validations:
+      required: false

@@ -1,0 +1,26 @@
+# dependencies
+node_modules/
+.bun-cache/
+
+# build output
+dist/
+release/
+
+# runtime data
+logs/
+exports/
+*.sqlite
+*.sqlite-*
+absen.sqlite*
+*.log
+
+# local config
+.env
+.env.*
+!.env.example
+
+# editor / OS
+.DS_Store
+.idea/
+.vscode/
+coverage/

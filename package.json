@@ -1,0 +1,50 @@
+{
+  "name": "absenly",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Attendance sync, recap, and admin web for ZKTeco devices (Bun + SQLite).",
+  "keywords": [
+    "absensi",
+    "attendance",
+    "bun",
+    "sqlite",
+    "zkteco"
+  ],
+  "homepage": "https://github.com/SonyPradana/absenly#readme",
+  "bugs": {
+    "url": "https://github.com/SonyPradana/absenly/issues"
+  },
+  "license": "MIT",
+  "author": "Sony Pradana <sonypradana@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SonyPradana/absenly.git"
+  },
+  "type": "module",
+  "module": "src/app.ts",
+  "scripts": {
+    "start": "bun run src/app.ts serve",
+    "serve": "bun run src/app.ts serve",
+    "dev": "bun --watch src/app.ts serve",
+    "sync": "bun run src/app.ts sync",
+    "device": "bun run src/app.ts device",
+    "export": "bun run src/app.ts export",
+    "fmt": "oxfmt",
+    "fmt:check": "oxfmt --check",
+    "lint": "oxlint",
+    "typecheck": "bun --check",
+    "test": "bun test",
+    "fixtures:check": "bun test tests/fixtures.test.ts tests/work-exceptions.test.ts tests/schedule.test.ts",
+    "compile": "bun build --compile --outfile dist/app src/app.ts",
+    "e2e:local": "bun run scripts/e2e-local.ts",
+    "check": "bun run fmt:check && bun run lint && bun run typecheck && bun run test && bun run e2e:local && bun run compile"
+  },
+  "dependencies": {
+    "xlsx": "^0.18.5"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "oxfmt": "^0.73.0",
+    "oxlint": "^1.88.0"
+  }
+}

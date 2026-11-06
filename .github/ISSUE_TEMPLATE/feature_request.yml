@@ -1,0 +1,38 @@
+name: Feature request
+description: Suggest a capability or a change in behaviour.
+title: "[Feature]: "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Keep it concrete. This project favours the smallest change that fully solves
+        the problem; a clear use case beats a broad wish list.
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What are you trying to do, and what gets in the way today?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+      description: What should change, and where (CLI, API, web, export, relay, ...)?
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: Other ways you could solve this, including doing nothing.
+    validations:
+      required: false
+  - type: textarea
+    id: scope
+    attributes:
+      label: Scope and risks
+      description: Does this touch the device, the DB schema, the API v1 contract, or security?
+    validations:
+      required: false

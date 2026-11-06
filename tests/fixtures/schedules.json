@@ -1,0 +1,352 @@
+{
+  "schema": "absenly/fixture-schedules/v1",
+  "meta": {
+    "source": "hand-built-schedules",
+    "generated_at": "2026-10-20T15:36:51+07:00",
+    "note": "Validasi config: pasangan IN/OUT, OUT setelah IN, minimal satu hari kerja, dan hari libur bukan hardcode Minggu."
+  },
+  "valid": [
+    {
+      "name": "office",
+      "schedule": {
+        "MONDAY": {
+          "in": "07:00",
+          "out": "16:00"
+        },
+        "TUESDAY": {
+          "in": "07:00",
+          "out": "16:00"
+        },
+        "WEDNESDAY": {
+          "in": "07:00",
+          "out": "16:00"
+        },
+        "THURSDAY": {
+          "in": "07:00",
+          "out": "16:00"
+        },
+        "FRIDAY": {
+          "in": "07:00",
+          "out": "16:00"
+        },
+        "SATURDAY": {
+          "in": "07:00",
+          "out": "12:00"
+        },
+        "SUNDAY": null
+      }
+    },
+    {
+      "name": "sunday_work",
+      "schedule": {
+        "MONDAY": {
+          "in": "07:00",
+          "out": "16:00"
+        },
+        "TUESDAY": {
+          "in": "07:00",
+          "out": "16:00"
+        },
+        "WEDNESDAY": {
+          "in": "07:00",
+          "out": "16:00"
+        },
+        "THURSDAY": {
+          "in": "07:00",
+          "out": "16:00"
+        },
+        "FRIDAY": {
+          "in": "07:00",
+          "out": "16:00"
+        },
+        "SATURDAY": {
+          "in": "07:00",
+          "out": "12:00"
+        },
+        "SUNDAY": {
+          "in": "07:00",
+          "out": "12:00"
+        }
+      }
+    },
+    {
+      "name": "single_workday",
+      "schedule": {
+        "MONDAY": null,
+        "TUESDAY": null,
+        "WEDNESDAY": {
+          "in": "08:00",
+          "out": "17:00"
+        },
+        "THURSDAY": null,
+        "FRIDAY": null,
+        "SATURDAY": null,
+        "SUNDAY": null
+      }
+    }
+  ],
+  "invalid": [
+    {
+      "name": "missing_out",
+      "schedule": {
+        "MONDAY": {
+          "in": "07:00"
+        }
+      },
+      "code": "SCHEDULE_PAIR"
+    },
+    {
+      "name": "missing_in",
+      "schedule": {
+        "MONDAY": {
+          "out": "16:00"
+        }
+      },
+      "code": "SCHEDULE_PAIR"
+    },
+    {
+      "name": "out_before_in",
+      "schedule": {
+        "MONDAY": {
+          "in": "16:00",
+          "out": "07:00"
+        }
+      },
+      "code": "SCHEDULE_ORDER"
+    },
+    {
+      "name": "out_equals_in",
+      "schedule": {
+        "MONDAY": {
+          "in": "07:00",
+          "out": "07:00"
+        }
+      },
+      "code": "SCHEDULE_ORDER"
+    },
+    {
+      "name": "bad_time",
+      "schedule": {
+        "MONDAY": {
+          "in": "7:00",
+          "out": "16:00"
+        }
+      },
+      "code": "SCHEDULE_TIME"
+    },
+    {
+      "name": "non_string_time",
+      "schedule": {
+        "MONDAY": {
+          "in": 700,
+          "out": "16:00"
+        }
+      },
+      "code": "SCHEDULE_TIME"
+    },
+    {
+      "name": "no_workday",
+      "schedule": {
+        "MONDAY": null,
+        "TUESDAY": null,
+        "WEDNESDAY": null,
+        "THURSDAY": null,
+        "FRIDAY": null,
+        "SATURDAY": null,
+        "SUNDAY": null
+      },
+      "code": "SCHEDULE_EMPTY"
+    },
+    {
+      "name": "unknown_day",
+      "schedule": {
+        "FUNDAY": {
+          "in": "07:00",
+          "out": "16:00"
+        }
+      },
+      "code": "SCHEDULE_DAY"
+    }
+  ],
+  "env_valid": [
+    {
+      "name": "office_env",
+      "env": {
+        "ABSEN_SCHEDULE_SUNDAY_IN": "",
+        "ABSEN_SCHEDULE_SUNDAY_OUT": "",
+        "ABSEN_SCHEDULE_MONDAY_IN": "07:00",
+        "ABSEN_SCHEDULE_MONDAY_OUT": "16:00",
+        "ABSEN_SCHEDULE_TUESDAY_IN": "07:00",
+        "ABSEN_SCHEDULE_TUESDAY_OUT": "16:00",
+        "ABSEN_SCHEDULE_WEDNESDAY_IN": "07:00",
+        "ABSEN_SCHEDULE_WEDNESDAY_OUT": "16:00",
+        "ABSEN_SCHEDULE_THURSDAY_IN": "07:00",
+        "ABSEN_SCHEDULE_THURSDAY_OUT": "16:00",
+        "ABSEN_SCHEDULE_FRIDAY_IN": "07:00",
+        "ABSEN_SCHEDULE_FRIDAY_OUT": "16:00",
+        "ABSEN_SCHEDULE_SATURDAY_IN": "07:00",
+        "ABSEN_SCHEDULE_SATURDAY_OUT": "12:00"
+      },
+      "schedule": {
+        "MONDAY": {
+          "in": "07:00",
+          "out": "16:00"
+        },
+        "TUESDAY": {
+          "in": "07:00",
+          "out": "16:00"
+        },
+        "WEDNESDAY": {
+          "in": "07:00",
+          "out": "16:00"
+        },
+        "THURSDAY": {
+          "in": "07:00",
+          "out": "16:00"
+        },
+        "FRIDAY": {
+          "in": "07:00",
+          "out": "16:00"
+        },
+        "SATURDAY": {
+          "in": "07:00",
+          "out": "12:00"
+        },
+        "SUNDAY": null
+      }
+    },
+    {
+      "name": "sunday_work_env",
+      "env": {
+        "ABSEN_SCHEDULE_SUNDAY_IN": "07:00",
+        "ABSEN_SCHEDULE_SUNDAY_OUT": "12:00",
+        "ABSEN_SCHEDULE_MONDAY_IN": "07:00",
+        "ABSEN_SCHEDULE_MONDAY_OUT": "16:00",
+        "ABSEN_SCHEDULE_TUESDAY_IN": "07:00",
+        "ABSEN_SCHEDULE_TUESDAY_OUT": "16:00",
+        "ABSEN_SCHEDULE_WEDNESDAY_IN": "07:00",
+        "ABSEN_SCHEDULE_WEDNESDAY_OUT": "16:00",
+        "ABSEN_SCHEDULE_THURSDAY_IN": "07:00",
+        "ABSEN_SCHEDULE_THURSDAY_OUT": "16:00",
+        "ABSEN_SCHEDULE_FRIDAY_IN": "07:00",
+        "ABSEN_SCHEDULE_FRIDAY_OUT": "16:00",
+        "ABSEN_SCHEDULE_SATURDAY_IN": "07:00",
+        "ABSEN_SCHEDULE_SATURDAY_OUT": "12:00"
+      },
+      "schedule": {
+        "MONDAY": {
+          "in": "07:00",
+          "out": "16:00"
+        },
+        "TUESDAY": {
+          "in": "07:00",
+          "out": "16:00"
+        },
+        "WEDNESDAY": {
+          "in": "07:00",
+          "out": "16:00"
+        },
+        "THURSDAY": {
+          "in": "07:00",
+          "out": "16:00"
+        },
+        "FRIDAY": {
+          "in": "07:00",
+          "out": "16:00"
+        },
+        "SATURDAY": {
+          "in": "07:00",
+          "out": "12:00"
+        },
+        "SUNDAY": {
+          "in": "07:00",
+          "out": "12:00"
+        }
+      }
+    },
+    {
+      "name": "single_workday_env",
+      "env": {
+        "ABSEN_SCHEDULE_SUNDAY_IN": "",
+        "ABSEN_SCHEDULE_SUNDAY_OUT": "",
+        "ABSEN_SCHEDULE_MONDAY_IN": "",
+        "ABSEN_SCHEDULE_MONDAY_OUT": "",
+        "ABSEN_SCHEDULE_TUESDAY_IN": "",
+        "ABSEN_SCHEDULE_TUESDAY_OUT": "",
+        "ABSEN_SCHEDULE_WEDNESDAY_IN": "08:00",
+        "ABSEN_SCHEDULE_WEDNESDAY_OUT": "17:00",
+        "ABSEN_SCHEDULE_THURSDAY_IN": "",
+        "ABSEN_SCHEDULE_THURSDAY_OUT": "",
+        "ABSEN_SCHEDULE_FRIDAY_IN": "",
+        "ABSEN_SCHEDULE_FRIDAY_OUT": "",
+        "ABSEN_SCHEDULE_SATURDAY_IN": "",
+        "ABSEN_SCHEDULE_SATURDAY_OUT": ""
+      },
+      "schedule": {
+        "MONDAY": null,
+        "TUESDAY": null,
+        "WEDNESDAY": {
+          "in": "08:00",
+          "out": "17:00"
+        },
+        "THURSDAY": null,
+        "FRIDAY": null,
+        "SATURDAY": null,
+        "SUNDAY": null
+      }
+    }
+  ],
+  "env_invalid": [
+    {
+      "name": "missing_out_env",
+      "env": {
+        "ABSEN_SCHEDULE_MONDAY_IN": "07:00"
+      },
+      "code": "SCHEDULE_PAIR"
+    },
+    {
+      "name": "empty_in_env",
+      "env": {
+        "ABSEN_SCHEDULE_MONDAY_IN": "",
+        "ABSEN_SCHEDULE_MONDAY_OUT": "16:00"
+      },
+      "code": "SCHEDULE_PAIR"
+    },
+    {
+      "name": "out_before_in_env",
+      "env": {
+        "ABSEN_SCHEDULE_MONDAY_IN": "16:00",
+        "ABSEN_SCHEDULE_MONDAY_OUT": "07:00"
+      },
+      "code": "SCHEDULE_ORDER"
+    },
+    {
+      "name": "bad_time_env",
+      "env": {
+        "ABSEN_SCHEDULE_MONDAY_IN": "7:00",
+        "ABSEN_SCHEDULE_MONDAY_OUT": "16:00"
+      },
+      "code": "SCHEDULE_TIME"
+    },
+    {
+      "name": "no_workday_env",
+      "env": {
+        "ABSEN_SCHEDULE_SUNDAY_IN": "",
+        "ABSEN_SCHEDULE_SUNDAY_OUT": "",
+        "ABSEN_SCHEDULE_MONDAY_IN": "",
+        "ABSEN_SCHEDULE_MONDAY_OUT": "",
+        "ABSEN_SCHEDULE_TUESDAY_IN": "",
+        "ABSEN_SCHEDULE_TUESDAY_OUT": "",
+        "ABSEN_SCHEDULE_WEDNESDAY_IN": "",
+        "ABSEN_SCHEDULE_WEDNESDAY_OUT": "",
+        "ABSEN_SCHEDULE_THURSDAY_IN": "",
+        "ABSEN_SCHEDULE_THURSDAY_OUT": "",
+        "ABSEN_SCHEDULE_FRIDAY_IN": "",
+        "ABSEN_SCHEDULE_FRIDAY_OUT": "",
+        "ABSEN_SCHEDULE_SATURDAY_IN": "",
+        "ABSEN_SCHEDULE_SATURDAY_OUT": ""
+      },
+      "code": "SCHEDULE_EMPTY"
+    }
+  ]
+}

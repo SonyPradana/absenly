@@ -1,0 +1,712 @@
+{
+  "schema": "absenly/fixture-edge-cases/v1",
+  "meta": {
+    "source": "hand-built-edge-cases",
+    "generated_at": "2026-10-20T15:36:51+07:00",
+    "note": "Batas 10:00, Minggu, telat/pulang cepat 1 menit, missing IN/OUT, 1-9 punch, nama 24 byte, ID leading zero."
+  },
+  "schedule": {
+    "MONDAY": {
+      "in": "07:00",
+      "out": "16:00"
+    },
+    "TUESDAY": {
+      "in": "07:00",
+      "out": "16:00"
+    },
+    "WEDNESDAY": {
+      "in": "07:00",
+      "out": "16:00"
+    },
+    "THURSDAY": {
+      "in": "07:00",
+      "out": "16:00"
+    },
+    "FRIDAY": {
+      "in": "07:00",
+      "out": "16:00"
+    },
+    "SATURDAY": {
+      "in": "07:00",
+      "out": "12:00"
+    },
+    "SUNDAY": null
+  },
+  "users": [
+    {
+      "uid": 1,
+      "idNumber": "00123",
+      "name": "Dummy Budi & <Test>",
+      "privilege": 0,
+      "card": 0,
+      "groupId": ""
+    },
+    {
+      "uid": 2,
+      "idNumber": "A-100",
+      "name": "Dummy Siti, S.Kom",
+      "privilege": 0,
+      "card": 123456,
+      "groupId": "G1"
+    },
+    {
+      "uid": 3,
+      "idNumber": "EDGE-1",
+      "name": "Dummy Karyawan 000000001",
+      "privilege": 14,
+      "card": 0,
+      "groupId": ""
+    },
+    {
+      "uid": 4,
+      "idNumber": "123456789012345678901234",
+      "name": "Dummy Dua Puluh Empat",
+      "privilege": 0,
+      "card": 0,
+      "groupId": ""
+    },
+    {
+      "uid": 5,
+      "idNumber": "EMPTY",
+      "name": "",
+      "privilege": 0,
+      "card": 0,
+      "groupId": ""
+    },
+    {
+      "uid": 6,
+      "idNumber": "U-24",
+      "name": "Dummy Nama, S.T.",
+      "privilege": 0,
+      "card": 0,
+      "groupId": ""
+    }
+  ],
+  "attendance": [
+    {
+      "uid": 40001,
+      "idNumber": "00123",
+      "name": "Dummy Budi & <Test>",
+      "date": "2026-10-05",
+      "time": "09:59:59",
+      "punch": 0,
+      "verify": 15
+    },
+    {
+      "uid": 40002,
+      "idNumber": "00123",
+      "name": "Dummy Budi & <Test>",
+      "date": "2026-10-05",
+      "time": "10:00:00",
+      "punch": 1,
+      "verify": 15
+    },
+    {
+      "uid": 40003,
+      "idNumber": "00123",
+      "name": "Dummy Budi & <Test>",
+      "date": "2026-10-06",
+      "time": "06:30:00",
+      "punch": 0,
+      "verify": 15
+    },
+    {
+      "uid": 40004,
+      "idNumber": "00123",
+      "name": "Dummy Budi & <Test>",
+      "date": "2026-10-06",
+      "time": "12:00:00",
+      "punch": 1,
+      "verify": 15
+    },
+    {
+      "uid": 40005,
+      "idNumber": "00123",
+      "name": "Dummy Budi & <Test>",
+      "date": "2026-10-06",
+      "time": "15:59:00",
+      "punch": 1,
+      "verify": 15
+    },
+    {
+      "uid": 40006,
+      "idNumber": "00123",
+      "name": "Dummy Budi & <Test>",
+      "date": "2026-10-07",
+      "time": "07:00:00",
+      "punch": 0,
+      "verify": 15
+    },
+    {
+      "uid": 40007,
+      "idNumber": "00123",
+      "name": "Dummy Budi & <Test>",
+      "date": "2026-10-07",
+      "time": "16:00:00",
+      "punch": 1,
+      "verify": 15
+    },
+    {
+      "uid": 40008,
+      "idNumber": "00123",
+      "name": "Dummy Budi & <Test>",
+      "date": "2026-10-08",
+      "time": "12:06:30",
+      "punch": 0,
+      "verify": 15
+    },
+    {
+      "uid": 40009,
+      "idNumber": "00123",
+      "name": "Dummy Budi & <Test>",
+      "date": "2026-10-09",
+      "time": "07:45:00",
+      "punch": 0,
+      "verify": 15
+    },
+    {
+      "uid": 40010,
+      "idNumber": "00123",
+      "name": "Dummy Budi & <Test>",
+      "date": "2026-10-10",
+      "time": "10:00:00",
+      "punch": 1,
+      "verify": 15
+    },
+    {
+      "uid": 40011,
+      "idNumber": "A-100",
+      "name": "Dummy Siti, S.Kom",
+      "date": "2026-10-04",
+      "time": "07:00:00",
+      "punch": 0,
+      "verify": 15
+    },
+    {
+      "uid": 40012,
+      "idNumber": "A-100",
+      "name": "Dummy Siti, S.Kom",
+      "date": "2026-10-04",
+      "time": "12:00:00",
+      "punch": 1,
+      "verify": 15
+    },
+    {
+      "uid": 40013,
+      "idNumber": "A-100",
+      "name": "Dummy Siti, S.Kom",
+      "date": "2026-10-05",
+      "time": "06:59:59",
+      "punch": 0,
+      "verify": 15
+    },
+    {
+      "uid": 40014,
+      "idNumber": "A-100",
+      "name": "Dummy Siti, S.Kom",
+      "date": "2026-10-05",
+      "time": "16:00:01",
+      "punch": 1,
+      "verify": 15
+    },
+    {
+      "uid": 40015,
+      "idNumber": "A-100",
+      "name": "Dummy Siti, S.Kom",
+      "date": "2026-10-06",
+      "time": "07:01:00",
+      "punch": 0,
+      "verify": 15
+    },
+    {
+      "uid": 40016,
+      "idNumber": "A-100",
+      "name": "Dummy Siti, S.Kom",
+      "date": "2026-10-06",
+      "time": "15:59:00",
+      "punch": 1,
+      "verify": 15
+    },
+    {
+      "uid": 40017,
+      "idNumber": "A-100",
+      "name": "Dummy Siti, S.Kom",
+      "date": "2026-10-07",
+      "time": "06:30:00",
+      "punch": 0,
+      "verify": 15
+    },
+    {
+      "uid": 40018,
+      "idNumber": "A-100",
+      "name": "Dummy Siti, S.Kom",
+      "date": "2026-10-07",
+      "time": "07:00:00",
+      "punch": 0,
+      "verify": 15
+    },
+    {
+      "uid": 40019,
+      "idNumber": "A-100",
+      "name": "Dummy Siti, S.Kom",
+      "date": "2026-10-07",
+      "time": "07:30:00",
+      "punch": 0,
+      "verify": 15
+    },
+    {
+      "uid": 40020,
+      "idNumber": "A-100",
+      "name": "Dummy Siti, S.Kom",
+      "date": "2026-10-07",
+      "time": "08:00:00",
+      "punch": 0,
+      "verify": 15
+    },
+    {
+      "uid": 40021,
+      "idNumber": "A-100",
+      "name": "Dummy Siti, S.Kom",
+      "date": "2026-10-07",
+      "time": "09:59:59",
+      "punch": 0,
+      "verify": 15
+    },
+    {
+      "uid": 40022,
+      "idNumber": "A-100",
+      "name": "Dummy Siti, S.Kom",
+      "date": "2026-10-07",
+      "time": "10:00:00",
+      "punch": 1,
+      "verify": 15
+    },
+    {
+      "uid": 40023,
+      "idNumber": "A-100",
+      "name": "Dummy Siti, S.Kom",
+      "date": "2026-10-07",
+      "time": "12:00:00",
+      "punch": 1,
+      "verify": 15
+    },
+    {
+      "uid": 40024,
+      "idNumber": "A-100",
+      "name": "Dummy Siti, S.Kom",
+      "date": "2026-10-07",
+      "time": "15:00:00",
+      "punch": 1,
+      "verify": 15
+    },
+    {
+      "uid": 40025,
+      "idNumber": "A-100",
+      "name": "Dummy Siti, S.Kom",
+      "date": "2026-10-07",
+      "time": "18:00:00",
+      "punch": 1,
+      "verify": 15
+    },
+    {
+      "uid": 40026,
+      "idNumber": "A-100",
+      "name": "Dummy Siti, S.Kom",
+      "date": "2026-10-08",
+      "time": "00:00:00",
+      "punch": 0,
+      "verify": 15
+    },
+    {
+      "uid": 40027,
+      "idNumber": "A-100",
+      "name": "Dummy Siti, S.Kom",
+      "date": "2026-10-08",
+      "time": "23:59:59",
+      "punch": 1,
+      "verify": 15
+    },
+    {
+      "uid": 40028,
+      "idNumber": "A-100",
+      "name": "Dummy Siti, S.Kom",
+      "date": "2026-10-09",
+      "time": "09:59:59",
+      "punch": 0,
+      "verify": 15
+    },
+    {
+      "uid": 40029,
+      "idNumber": "A-100",
+      "name": "Dummy Siti, S.Kom",
+      "date": "2026-10-09",
+      "time": "10:00:00",
+      "punch": 1,
+      "verify": 15
+    },
+    {
+      "uid": 40030,
+      "idNumber": "A-100",
+      "name": "Dummy Siti, S.Kom",
+      "date": "2026-10-10",
+      "time": "06:30:00",
+      "punch": 0,
+      "verify": 15
+    },
+    {
+      "uid": 40031,
+      "idNumber": "A-100",
+      "name": "Dummy Siti, S.Kom",
+      "date": "2026-10-10",
+      "time": "16:00:00",
+      "punch": 1,
+      "verify": 15
+    },
+    {
+      "uid": 40032,
+      "idNumber": "A-100",
+      "name": "Dummy Siti, S.Kom",
+      "date": "2026-10-10",
+      "time": "07:00:00",
+      "punch": 0,
+      "verify": 15
+    },
+    {
+      "uid": 40033,
+      "idNumber": "A-100",
+      "name": "Dummy Siti, S.Kom",
+      "date": "2026-10-11",
+      "time": "09:00:00",
+      "punch": 0,
+      "verify": 15
+    },
+    {
+      "uid": 40034,
+      "idNumber": "EDGE-1",
+      "name": "Dummy Karyawan 000000001",
+      "date": "2026-10-05",
+      "time": "07:00:00",
+      "punch": 0,
+      "verify": 15
+    },
+    {
+      "uid": 40035,
+      "idNumber": "EDGE-1",
+      "name": "Dummy Karyawan 000000001",
+      "date": "2026-10-05",
+      "time": "16:00:00",
+      "punch": 1,
+      "verify": 15
+    },
+    {
+      "uid": 40036,
+      "idNumber": "123456789012345678901234",
+      "name": "Dummy Dua Puluh Empat",
+      "date": "2026-10-05",
+      "time": "07:30:00",
+      "punch": 0,
+      "verify": 15
+    },
+    {
+      "uid": 40037,
+      "idNumber": "123456789012345678901234",
+      "name": "Dummy Dua Puluh Empat",
+      "date": "2026-10-05",
+      "time": "15:30:00",
+      "punch": 1,
+      "verify": 15
+    },
+    {
+      "uid": 40038,
+      "idNumber": "EMPTY",
+      "name": "",
+      "date": "2026-10-06",
+      "time": "07:00:00",
+      "punch": 0,
+      "verify": 15
+    },
+    {
+      "uid": 40039,
+      "idNumber": "EMPTY",
+      "name": "",
+      "date": "2026-10-06",
+      "time": "16:00:00",
+      "punch": 1,
+      "verify": 15
+    },
+    {
+      "uid": 40040,
+      "idNumber": "U-24",
+      "name": "Dummy Nama, S.T.",
+      "date": "2026-10-06",
+      "time": "06:59:59",
+      "punch": 0,
+      "verify": 15
+    },
+    {
+      "uid": 40041,
+      "idNumber": "U-24",
+      "name": "Dummy Nama, S.T.",
+      "date": "2026-10-06",
+      "time": "16:00:00",
+      "punch": 1,
+      "verify": 15
+    },
+    {
+      "uid": 40042,
+      "idNumber": "U-24",
+      "name": "Dummy Nama, S.T.",
+      "date": "2026-10-08",
+      "time": "10:00:01",
+      "punch": 1,
+      "verify": 15
+    }
+  ],
+  "expected_daily": [
+    {
+      "date": "2026-10-04",
+      "id_number": "A-100",
+      "name": "Dummy Siti, S.Kom",
+      "in_time": "07:00:00",
+      "out_time": "12:00:00",
+      "late_minutes": 0,
+      "early_minutes": 0,
+      "is_workday": false,
+      "punches": 2,
+      "status": "libur"
+    },
+    {
+      "date": "2026-10-05",
+      "id_number": "00123",
+      "name": "Dummy Budi & <Test>",
+      "in_time": "09:59:59",
+      "out_time": "10:00:00",
+      "late_minutes": 179,
+      "early_minutes": 360,
+      "is_workday": true,
+      "punches": 2,
+      "status": "telat"
+    },
+    {
+      "date": "2026-10-05",
+      "id_number": "123456789012345678901234",
+      "name": "Dummy Dua Puluh Empat",
+      "in_time": "07:30:00",
+      "out_time": "15:30:00",
+      "late_minutes": 30,
+      "early_minutes": 30,
+      "is_workday": true,
+      "punches": 2,
+      "status": "telat"
+    },
+    {
+      "date": "2026-10-05",
+      "id_number": "A-100",
+      "name": "Dummy Siti, S.Kom",
+      "in_time": "06:59:59",
+      "out_time": "16:00:01",
+      "late_minutes": 0,
+      "early_minutes": 0,
+      "is_workday": true,
+      "punches": 2,
+      "status": "lengkap"
+    },
+    {
+      "date": "2026-10-05",
+      "id_number": "EDGE-1",
+      "name": "Dummy Karyawan 000000001",
+      "in_time": "07:00:00",
+      "out_time": "16:00:00",
+      "late_minutes": 0,
+      "early_minutes": 0,
+      "is_workday": true,
+      "punches": 2,
+      "status": "lengkap"
+    },
+    {
+      "date": "2026-10-06",
+      "id_number": "00123",
+      "name": "Dummy Budi & <Test>",
+      "in_time": "06:30:00",
+      "out_time": "15:59:00",
+      "late_minutes": 0,
+      "early_minutes": 1,
+      "is_workday": true,
+      "punches": 3,
+      "status": "pulang_cepat"
+    },
+    {
+      "date": "2026-10-06",
+      "id_number": "A-100",
+      "name": "Dummy Siti, S.Kom",
+      "in_time": "07:01:00",
+      "out_time": "15:59:00",
+      "late_minutes": 1,
+      "early_minutes": 1,
+      "is_workday": true,
+      "punches": 2,
+      "status": "telat"
+    },
+    {
+      "date": "2026-10-06",
+      "id_number": "EMPTY",
+      "name": "",
+      "in_time": "07:00:00",
+      "out_time": "16:00:00",
+      "late_minutes": 0,
+      "early_minutes": 0,
+      "is_workday": true,
+      "punches": 2,
+      "status": "lengkap"
+    },
+    {
+      "date": "2026-10-06",
+      "id_number": "U-24",
+      "name": "Dummy Nama, S.T.",
+      "in_time": "06:59:59",
+      "out_time": "16:00:00",
+      "late_minutes": 0,
+      "early_minutes": 0,
+      "is_workday": true,
+      "punches": 2,
+      "status": "lengkap"
+    },
+    {
+      "date": "2026-10-07",
+      "id_number": "00123",
+      "name": "Dummy Budi & <Test>",
+      "in_time": "07:00:00",
+      "out_time": "16:00:00",
+      "late_minutes": 0,
+      "early_minutes": 0,
+      "is_workday": true,
+      "punches": 2,
+      "status": "lengkap"
+    },
+    {
+      "date": "2026-10-07",
+      "id_number": "A-100",
+      "name": "Dummy Siti, S.Kom",
+      "in_time": "06:30:00",
+      "out_time": "18:00:00",
+      "late_minutes": 0,
+      "early_minutes": 0,
+      "is_workday": true,
+      "punches": 9,
+      "status": "lengkap"
+    },
+    {
+      "date": "2026-10-08",
+      "id_number": "00123",
+      "name": "Dummy Budi & <Test>",
+      "in_time": null,
+      "out_time": "12:06:30",
+      "late_minutes": null,
+      "early_minutes": 233,
+      "is_workday": true,
+      "punches": 1,
+      "status": "tanpa_masuk"
+    },
+    {
+      "date": "2026-10-08",
+      "id_number": "A-100",
+      "name": "Dummy Siti, S.Kom",
+      "in_time": "00:00:00",
+      "out_time": "23:59:59",
+      "late_minutes": 0,
+      "early_minutes": 0,
+      "is_workday": true,
+      "punches": 2,
+      "status": "lengkap"
+    },
+    {
+      "date": "2026-10-08",
+      "id_number": "U-24",
+      "name": "Dummy Nama, S.T.",
+      "in_time": null,
+      "out_time": "10:00:01",
+      "late_minutes": null,
+      "early_minutes": 359,
+      "is_workday": true,
+      "punches": 1,
+      "status": "tanpa_masuk"
+    },
+    {
+      "date": "2026-10-09",
+      "id_number": "00123",
+      "name": "Dummy Budi & <Test>",
+      "in_time": "07:45:00",
+      "out_time": null,
+      "late_minutes": 45,
+      "early_minutes": null,
+      "is_workday": true,
+      "punches": 1,
+      "status": "belum_pulang"
+    },
+    {
+      "date": "2026-10-09",
+      "id_number": "A-100",
+      "name": "Dummy Siti, S.Kom",
+      "in_time": "09:59:59",
+      "out_time": "10:00:00",
+      "late_minutes": 179,
+      "early_minutes": 360,
+      "is_workday": true,
+      "punches": 2,
+      "status": "telat"
+    },
+    {
+      "date": "2026-10-10",
+      "id_number": "00123",
+      "name": "Dummy Budi & <Test>",
+      "in_time": null,
+      "out_time": "10:00:00",
+      "late_minutes": null,
+      "early_minutes": 120,
+      "is_workday": true,
+      "punches": 1,
+      "status": "tanpa_masuk"
+    },
+    {
+      "date": "2026-10-10",
+      "id_number": "A-100",
+      "name": "Dummy Siti, S.Kom",
+      "in_time": "06:30:00",
+      "out_time": "16:00:00",
+      "late_minutes": 0,
+      "early_minutes": 0,
+      "is_workday": true,
+      "punches": 3,
+      "status": "lengkap"
+    },
+    {
+      "date": "2026-10-11",
+      "id_number": "A-100",
+      "name": "Dummy Siti, S.Kom",
+      "in_time": "09:00:00",
+      "out_time": null,
+      "late_minutes": 0,
+      "early_minutes": 0,
+      "is_workday": false,
+      "punches": 1,
+      "status": "libur"
+    }
+  ],
+  "expected_summary": {
+    "rows": 19,
+    "present": 19,
+    "late": 5,
+    "early": 8,
+    "incomplete": 5,
+    "late_minutes": 434,
+    "early_minutes": 1464,
+    "status_counts": {
+      "libur": 2,
+      "telat": 4,
+      "lengkap": 8,
+      "pulang_cepat": 1,
+      "tanpa_masuk": 3,
+      "belum_pulang": 1
+    }
+  }
+}

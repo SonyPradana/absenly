@@ -1,0 +1,109 @@
+name: Release
+
+on:
+  push:
+    tags: ["v*"]
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Tag to build (must already exist, e.g. v0.2.0)"
+        required: true
+
+permissions:
+  contents: write
+
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  build:
+    name: Build Windows binary
+    runs-on: windows-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.inputs.tag || github.ref }}
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: 1.4.3
+
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
+
+      - name: Verify tag matches package.json
+        shell: pwsh
+        run: |
+          $tag = "${{ github.event.inputs.tag || github.ref_name }}"
+          $version = (Get-Content package.json -Raw | ConvertFrom-Json).version
+          if ($tag -ne "v$version") {
+            Write-Error "Tag '$tag' does not match package.json version 'v$version'. Bump the version and retag."
+            exit 1
+          }
+          Write-Host "Building $tag"
+
+      - name: Format check
+        run: bun run fmt:check
+
+      - name: Lint
+        run: bun run lint
+
+      - name: Typecheck
+        run: bun run typecheck
+
+      - name: Unit tests
+        run: bun run test
+
+      - name: Relay E2E (loopback, no device)
+        run: bun run e2e:local
+
+      - name: Compile
+        run: bun run compile
+
+      - name: Smoke test the binary
+        shell: pwsh
+        run: |
+          $version = (Get-Content package.json -Raw | ConvertFrom-Json).version
+          $out = (& .\dist\app.exe --version | Out-String).Trim()
+          if ($LASTEXITCODE -ne 0) { Write-Error "app.exe --version exited $LASTEXITCODE"; exit 1 }
+          if ($out -ne $version) { Write-Error "binary reports '$out', expected '$version'"; exit 1 }
+          & .\dist\app.exe help | Out-Null
+          if ($LASTEXITCODE -ne 0) { Write-Error "app.exe help exited $LASTEXITCODE"; exit 1 }
+          Write-Host "app.exe reports $out"
+
+      - name: Package
+        shell: pwsh
+        run: |
+          $tag = "${{ github.event.inputs.tag || github.ref_name }}"
+          $name = "absenly-$tag-windows-x64"
+          New-Item -ItemType Directory -Path "release/$name" | Out-Null
+          Copy-Item dist/app.exe "release/$name/app.exe"
+          Copy-Item .env.example "release/$name/.env.example"
+          Copy-Item README.md "release/$name/README.md"
+          Compress-Archive -Path "release/$name" -DestinationPath "release/$name.zip"
+          $hash = (Get-FileHash "release/$name.zip" -Algorithm SHA256).Hash.ToLower()
+          "$hash  $name.zip" | Out-File -Encoding ascii "release/$name.zip.sha256"
+          Get-Content "release/$name.zip.sha256"
+
+      - name: Publish release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ github.event.inputs.tag || github.ref_name }}
+          name: ${{ github.event.inputs.tag || github.ref_name }}
+          generate_release_notes: true
+          body: |
+            Standalone Windows build. Extract the zip, then place your own `.env`
+            and `schedule.json` next to `app.exe` (see `.env.example`).
+
+            Verify the download:
+            ```
+            certutil -hashfile absenly-*-windows-x64.zip SHA256
+            ```
+          files: |
+            release/*.zip
+            release/*.zip.sha256
+          fail_on_unmatched_files: true

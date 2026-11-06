@@ -1,0 +1,51 @@
+{
+  "schema": "absenly/fixture-summary/v1",
+  "generated_at": "2026-10-20T15:36:51+07:00",
+  "schedule": {
+    "MONDAY": {
+      "in": "07:00",
+      "out": "16:00"
+    },
+    "TUESDAY": {
+      "in": "07:00",
+      "out": "16:00"
+    },
+    "WEDNESDAY": {
+      "in": "07:00",
+      "out": "16:00"
+    },
+    "THURSDAY": {
+      "in": "07:00",
+      "out": "16:00"
+    },
+    "FRIDAY": {
+      "in": "07:00",
+      "out": "16:00"
+    },
+    "SATURDAY": {
+      "in": "07:00",
+      "out": "12:00"
+    },
+    "SUNDAY": null
+  },
+  "source": "attendance.json",
+  "first_date": "2026-09-28",
+  "last_date": "2026-10-20",
+  "daily_rows": 705,
+  "summary": {
+    "rows": 705,
+    "present": 705,
+    "late": 448,
+    "early": 554,
+    "incomplete": 34,
+    "late_minutes": 5347,
+    "early_minutes": 66551,
+    "status_counts": {
+      "tanpa_masuk": 17,
+      "telat": 438,
+      "pulang_cepat": 207,
+      "belum_pulang": 17,
+      "lengkap": 26
+    }
+  }
+}

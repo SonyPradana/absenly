@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "base": {
+    "SUNDAY": null,
+    "MONDAY": {
+      "in": "07:15",
+      "out": "14:00"
+    },
+    "TUESDAY": {
+      "in": "07:15",
+      "out": "14:00"
+    },
+    "WEDNESDAY": {
+      "in": "07:15",
+      "out": "14:00"
+    },
+    "THURSDAY": {
+      "in": "07:15",
+      "out": "14:00"
+    },
+    "FRIDAY": {
+      "in": "07:00",
+      "out": "11:30"
+    },
+    "SATURDAY": {
+      "in": "07:15",
+      "out": "13:15"
+    }
+  },
+  "overrides": []
+}

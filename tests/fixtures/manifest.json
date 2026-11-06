@@ -1,0 +1,280 @@
+{
+  "schema": "absenly/fixtures/v1",
+  "generated_at": "2026-10-20T15:36:51+07:00",
+  "source": {
+    "captured_at": "2026-10-20T14:50:02+07:00",
+    "counts": {
+      "users": 56,
+      "fingers": 11,
+      "records": 2567,
+      "usersCap": 2000,
+      "recordsCap": 100000
+    },
+    "stats": {
+      "users": 56,
+      "records": 2567,
+      "users_with_attendance": 39,
+      "users_without_attendance": 17,
+      "first_date": "2026-09-28",
+      "last_date": "2026-10-20",
+      "dates": 20,
+      "sunday_records": 0,
+      "user_days": 705,
+      "punches_per_user_day": {
+        "1": 9,
+        "2": 152,
+        "3": 145,
+        "4": 254,
+        "5": 84,
+        "6": 51,
+        "7": 5,
+        "8": 3,
+        "9": 2
+      },
+      "missing_in": 17,
+      "missing_out": 17,
+      "raw_punch_anomalies": 2,
+      "verify_counts": {
+        "15": 2567
+      },
+      "punch_counts": {
+        "0": 1257,
+        "1": 1310
+      },
+      "comma_names": 27,
+      "exact_24_byte_names": 17,
+      "id_lengths": {
+        "1": 1,
+        "3": 19,
+        "4": 8,
+        "5": 13,
+        "6": 15
+      },
+      "name_byte_lengths": {
+        "6": 1,
+        "7": 1,
+        "8": 2,
+        "10": 1,
+        "12": 1,
+        "13": 4,
+        "15": 4,
+        "16": 1,
+        "17": 3,
+        "18": 1,
+        "19": 4,
+        "20": 3,
+        "21": 4,
+        "22": 4,
+        "23": 5,
+        "24": 17
+      },
+      "duplicate_keys": 0,
+      "records_by_date": {
+        "2026-09-28": 30,
+        "2026-09-29": 126,
+        "2026-09-30": 143,
+        "2026-10-01": 143,
+        "2026-10-02": 137,
+        "2026-10-03": 136,
+        "2026-10-05": 132,
+        "2026-10-06": 138,
+        "2026-10-07": 138,
+        "2026-10-08": 131,
+        "2026-10-09": 132,
+        "2026-10-10": 150,
+        "2026-10-12": 133,
+        "2026-10-13": 106,
+        "2026-10-14": 135,
+        "2026-10-15": 124,
+        "2026-10-16": 145,
+        "2026-10-17": 130,
+        "2026-10-19": 140,
+        "2026-10-20": 118
+      }
+    }
+  },
+  "anonymization": {
+    "real_names_replaced": true,
+    "real_ids_replaced": true,
+    "password_bytes_zeroed": true,
+    "cards_replaced": true,
+    "uid_remapped": true,
+    "attendance_reserved_bytes_zeroed": true,
+    "timestamps_preserved": true,
+    "main_name_prefix": "Dummy ",
+    "main_id_prefix": "9",
+    "note": "Tanggal/jam dipertahankan agar kalender dan distribusi punch akurat; identitas tidak."
+  },
+  "schedule": {
+    "MONDAY": {
+      "in": "07:00",
+      "out": "16:00"
+    },
+    "TUESDAY": {
+      "in": "07:00",
+      "out": "16:00"
+    },
+    "WEDNESDAY": {
+      "in": "07:00",
+      "out": "16:00"
+    },
+    "THURSDAY": {
+      "in": "07:00",
+      "out": "16:00"
+    },
+    "FRIDAY": {
+      "in": "07:00",
+      "out": "16:00"
+    },
+    "SATURDAY": {
+      "in": "07:00",
+      "out": "12:00"
+    },
+    "SUNDAY": null
+  },
+  "counts": {
+    "users": 56,
+    "attendance": 2567,
+    "edge_users": 6,
+    "edge_attendance": 42,
+    "legacy_users": 3,
+    "legacy_attendance8": 3,
+    "legacy_attendance16": 3,
+    "work_exceptions": 4,
+    "schedules_valid": 3,
+    "schedules_invalid": 13
+  },
+  "invariants": {
+    "users": 56,
+    "records": 2567,
+    "users_with_attendance": 39,
+    "users_without_attendance": 17,
+    "first_date": "2026-09-28",
+    "last_date": "2026-10-20",
+    "dates": 20,
+    "sunday_records": 0,
+    "user_days": 705,
+    "missing_in": 17,
+    "missing_out": 17,
+    "raw_punch_anomalies": 2,
+    "duplicate_keys": 0,
+    "punches_per_user_day": {
+      "1": 9,
+      "2": 152,
+      "3": 145,
+      "4": 254,
+      "5": 84,
+      "6": 51,
+      "7": 5,
+      "8": 3,
+      "9": 2
+    },
+    "min_punches_per_user_day": 1,
+    "max_punches_per_user_day": 9,
+    "comma_names": 27,
+    "exact_24_byte_names": 17,
+    "main_names_dummy": 56,
+    "main_ids_start_9": 56,
+    "edge_rows": 19,
+    "edge_summary": {
+      "rows": 19,
+      "present": 19,
+      "late": 5,
+      "early": 8,
+      "incomplete": 5,
+      "late_minutes": 434,
+      "early_minutes": 1464,
+      "status_counts": {
+        "libur": 2,
+        "telat": 4,
+        "lengkap": 8,
+        "pulang_cepat": 1,
+        "tanpa_masuk": 3,
+        "belum_pulang": 1
+      }
+    },
+    "legacy_users": 3,
+    "legacy_attendance8": 3,
+    "legacy_attendance16": 3,
+    "work_exceptions_valid": 4,
+    "work_exceptions_boundary": 2,
+    "work_exceptions_invalid": 6,
+    "work_exceptions_recap_rows": 4,
+    "schedules_valid": 3,
+    "schedules_invalid": 13
+  },
+  "files": {
+    "attendance.json": {
+      "bytes": 480962,
+      "sha256": "1b285cd0de9033f18036e3793eba36f25a6c5a1e8451ff6710fc6d58b38a52e5"
+    },
+    "device/attendance-40.bin": {
+      "bytes": 102684,
+      "sha256": "735c4b79bb53c036ebcc3eb2d83f7e30feabb260b90f6df54a661a8201c69ca7"
+    },
+    "device/edge-attendance-40.bin": {
+      "bytes": 1684,
+      "sha256": "fe2531ca7bf95a71dd61829b4e4eaa760bfe0a6564f3b6452e84c57df770a7f4"
+    },
+    "device/edge-users-72.bin": {
+      "bytes": 436,
+      "sha256": "6394acac9530fcf8182bd72964f61d3d8bce74643867018a2ca75f7583980cc6"
+    },
+    "device/legacy/attendance-16.bin": {
+      "bytes": 52,
+      "sha256": "a4bf7a4b5f446d7f8418e79cdc4f7263c2c251372a6c0cb95a2aa39b8e8a1383"
+    },
+    "device/legacy/attendance-8.bin": {
+      "bytes": 28,
+      "sha256": "a8e2992db7e0e0c48647e72d3dfbf356a97a8a502c75a310ca6672fe0fed7a55"
+    },
+    "device/legacy/users-28.bin": {
+      "bytes": 88,
+      "sha256": "2f10749884f5ec4ff6d64fa86ff432f0efde7b5524eba1842033510e9cae2771"
+    },
+    "device/users-72.bin": {
+      "bytes": 4036,
+      "sha256": "df131e28d1949e78d89b60a4109c41c6b31a6e66640ebebe045d62ed86fd75d0"
+    },
+    "edge-cases.json": {
+      "bytes": 15346,
+      "sha256": "1e7758a00c3d95fdd69bc1179c36b8ec62e91525bef6d96b57edcd1fdbf9ea28"
+    },
+    "expected/api-employees.json": {
+      "bytes": 7741,
+      "sha256": "b384c4d5d74f7316e5d3191d4a863fcfdeb383eca4b27f5b39bb981c668c9201"
+    },
+    "expected/api-recap-edge.json": {
+      "bytes": 5130,
+      "sha256": "4cd7e0f47b50d116122345021e98b33ed32e8868263b6ff1bb05b4234e39c4fc"
+    },
+    "expected/cli-export-edge.json": {
+      "bytes": 5130,
+      "sha256": "0b9cb524b4e4d42c9e29f7057ac530388a4418defa4a7419134c9f36c777919e"
+    },
+    "expected/main-summary.json": {
+      "bytes": 956,
+      "sha256": "a41ee948eddbebdb7b05be781b6fef070d9bcab524e07b03fee4f764ea49fa3b"
+    },
+    "legacy.json": {
+      "bytes": 3430,
+      "sha256": "b9456f249332bad098ba23c871465e996f4b2306f8e85ac9a3fc7e7f496dd93e"
+    },
+    "scenarios/sync-race.json": {
+      "bytes": 9217,
+      "sha256": "533e74fde005753fad5ddbebc30be970a3cb0e1c6c8fbe81028c4854fced3f5d"
+    },
+    "schedules.json": {
+      "bytes": 8269,
+      "sha256": "561fde6e16516882999169a49f73de8a580ca8d655ed31e32f6569dfbeb7cec1"
+    },
+    "users.json": {
+      "bytes": 9008,
+      "sha256": "5416c29c16d6f063c8cb0cfe8fce71bfeb32ae617a1baafe67479fbad0956491"
+    },
+    "work-exceptions.json": {
+      "bytes": 6322,
+      "sha256": "c912d829bcc0385ab5e39ea15658a48f413d6f10872f8005c80ceaa7ee928c1d"
+    }
+  }
+}

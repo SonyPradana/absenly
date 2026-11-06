@@ -1,0 +1,17 @@
+﻿* text=auto eol=lf
+
+# Windows scripts and binaries
+*.bat text eol=crlf
+*.cmd text eol=crlf
+*.ps1 text eol=lf
+*.bin binary
+*.png binary
+*.ico binary
+*.zip binary
+*.exe binary
+*.sqlite binary
+*.xlsx binary
+
+# Generated fixtures: never reformat, sha256 in manifest must stay stable
+tests/fixtures/**/*.json -text
+tests/fixtures/**/*.bin binary

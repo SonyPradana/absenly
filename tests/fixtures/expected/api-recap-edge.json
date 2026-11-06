@@ -1,0 +1,221 @@
+{
+  "data": [
+    {
+      "date": "2026-10-04",
+      "id_number": "A-100",
+      "name": "Dummy Siti, S.Kom",
+      "in_time": "07:00:00",
+      "out_time": "12:00:00",
+      "late_minutes": 0,
+      "early_minutes": 0,
+      "status": "libur",
+      "punches": 2
+    },
+    {
+      "date": "2026-10-05",
+      "id_number": "00123",
+      "name": "Dummy Budi & <Test>",
+      "in_time": "09:59:59",
+      "out_time": "10:00:00",
+      "late_minutes": 179,
+      "early_minutes": 360,
+      "status": "telat",
+      "punches": 2
+    },
+    {
+      "date": "2026-10-05",
+      "id_number": "123456789012345678901234",
+      "name": "Dummy Dua Puluh Empat",
+      "in_time": "07:30:00",
+      "out_time": "15:30:00",
+      "late_minutes": 30,
+      "early_minutes": 30,
+      "status": "telat",
+      "punches": 2
+    },
+    {
+      "date": "2026-10-05",
+      "id_number": "EDGE-1",
+      "name": "Dummy Karyawan 000000001",
+      "in_time": "07:00:00",
+      "out_time": "16:00:00",
+      "late_minutes": 0,
+      "early_minutes": 0,
+      "status": "lengkap",
+      "punches": 2
+    },
+    {
+      "date": "2026-10-05",
+      "id_number": "A-100",
+      "name": "Dummy Siti, S.Kom",
+      "in_time": "06:59:59",
+      "out_time": "16:00:01",
+      "late_minutes": 0,
+      "early_minutes": 0,
+      "status": "lengkap",
+      "punches": 2
+    },
+    {
+      "date": "2026-10-06",
+      "id_number": "EMPTY",
+      "name": "",
+      "in_time": "07:00:00",
+      "out_time": "16:00:00",
+      "late_minutes": 0,
+      "early_minutes": 0,
+      "status": "lengkap",
+      "punches": 2
+    },
+    {
+      "date": "2026-10-06",
+      "id_number": "00123",
+      "name": "Dummy Budi & <Test>",
+      "in_time": "06:30:00",
+      "out_time": "15:59:00",
+      "late_minutes": 0,
+      "early_minutes": 1,
+      "status": "pulang_cepat",
+      "punches": 3
+    },
+    {
+      "date": "2026-10-06",
+      "id_number": "U-24",
+      "name": "Dummy Nama, S.T.",
+      "in_time": "06:59:59",
+      "out_time": "16:00:00",
+      "late_minutes": 0,
+      "early_minutes": 0,
+      "status": "lengkap",
+      "punches": 2
+    },
+    {
+      "date": "2026-10-06",
+      "id_number": "A-100",
+      "name": "Dummy Siti, S.Kom",
+      "in_time": "07:01:00",
+      "out_time": "15:59:00",
+      "late_minutes": 1,
+      "early_minutes": 1,
+      "status": "telat",
+      "punches": 2
+    },
+    {
+      "date": "2026-10-07",
+      "id_number": "00123",
+      "name": "Dummy Budi & <Test>",
+      "in_time": "07:00:00",
+      "out_time": "16:00:00",
+      "late_minutes": 0,
+      "early_minutes": 0,
+      "status": "lengkap",
+      "punches": 2
+    },
+    {
+      "date": "2026-10-07",
+      "id_number": "A-100",
+      "name": "Dummy Siti, S.Kom",
+      "in_time": "06:30:00",
+      "out_time": "18:00:00",
+      "late_minutes": 0,
+      "early_minutes": 0,
+      "status": "lengkap",
+      "punches": 9
+    },
+    {
+      "date": "2026-10-08",
+      "id_number": "00123",
+      "name": "Dummy Budi & <Test>",
+      "in_time": null,
+      "out_time": "12:06:30",
+      "late_minutes": null,
+      "early_minutes": 233,
+      "status": "tanpa_masuk",
+      "punches": 1
+    },
+    {
+      "date": "2026-10-08",
+      "id_number": "U-24",
+      "name": "Dummy Nama, S.T.",
+      "in_time": null,
+      "out_time": "10:00:01",
+      "late_minutes": null,
+      "early_minutes": 359,
+      "status": "tanpa_masuk",
+      "punches": 1
+    },
+    {
+      "date": "2026-10-08",
+      "id_number": "A-100",
+      "name": "Dummy Siti, S.Kom",
+      "in_time": "00:00:00",
+      "out_time": "23:59:59",
+      "late_minutes": 0,
+      "early_minutes": 0,
+      "status": "lengkap",
+      "punches": 2
+    },
+    {
+      "date": "2026-10-09",
+      "id_number": "00123",
+      "name": "Dummy Budi & <Test>",
+      "in_time": "07:45:00",
+      "out_time": null,
+      "late_minutes": 45,
+      "early_minutes": null,
+      "status": "belum_pulang",
+      "punches": 1
+    },
+    {
+      "date": "2026-10-09",
+      "id_number": "A-100",
+      "name": "Dummy Siti, S.Kom",
+      "in_time": "09:59:59",
+      "out_time": "10:00:00",
+      "late_minutes": 179,
+      "early_minutes": 360,
+      "status": "telat",
+      "punches": 2
+    },
+    {
+      "date": "2026-10-10",
+      "id_number": "00123",
+      "name": "Dummy Budi & <Test>",
+      "in_time": null,
+      "out_time": "10:00:00",
+      "late_minutes": null,
+      "early_minutes": 120,
+      "status": "tanpa_masuk",
+      "punches": 1
+    },
+    {
+      "date": "2026-10-10",
+      "id_number": "A-100",
+      "name": "Dummy Siti, S.Kom",
+      "in_time": "06:30:00",
+      "out_time": "16:00:00",
+      "late_minutes": 0,
+      "early_minutes": 0,
+      "status": "lengkap",
+      "punches": 3
+    },
+    {
+      "date": "2026-10-11",
+      "id_number": "A-100",
+      "name": "Dummy Siti, S.Kom",
+      "in_time": "09:00:00",
+      "out_time": null,
+      "late_minutes": 0,
+      "early_minutes": 0,
+      "status": "libur",
+      "punches": 1
+    }
+  ],
+  "meta": {
+    "from": "2026-10-04",
+    "to": "2026-10-11",
+    "total": 19,
+    "page": 1,
+    "per_page": 50,
+    "total_pages": 1
+  }
+}

@@ -1,0 +1,399 @@
+{
+  "data": [
+    {
+      "id_number": "900054",
+      "name": "Dummy Adi Handayani",
+      "card": 0,
+      "group_id": "",
+      "privilege": 0
+    },
+    {
+      "id_number": "900049",
+      "name": "Dummy Adi Hidayat",
+      "card": 0,
+      "group_id": "",
+      "privilege": 0
+    },
+    {
+      "id_number": "900051",
+      "name": "Dummy Adi Kusuma",
+      "card": 0,
+      "group_id": "",
+      "privilege": 0
+    },
+    {
+      "id_number": "900053",
+      "name": "Dummy Adi Maharani",
+      "card": 0,
+      "group_id": "",
+      "privilege": 0
+    },
+    {
+      "id_number": "900048",
+      "name": "Dummy Adi Nugroho",
+      "card": 0,
+      "group_id": "",
+      "privilege": 0
+    },
+    {
+      "id_number": "900052",
+      "name": "Dummy Adi Pertiwi",
+      "card": 0,
+      "group_id": "",
+      "privilege": 0
+    },
+    {
+      "id_number": "90045",
+      "name": "Dummy Adi Pratama",
+      "card": 0,
+      "group_id": "",
+      "privilege": 0
+    },
+    {
+      "id_number": "90050",
+      "name": "Dummy Adi Ramadhan",
+      "card": 0,
+      "group_id": "",
+      "privilege": 0
+    },
+    {
+      "id_number": "90046",
+      "name": "Dummy Adi Saputra",
+      "card": 0,
+      "group_id": "",
+      "privilege": 0
+    },
+    {
+      "id_number": "900056",
+      "name": "Dummy Adi Simbolon",
+      "card": 0,
+      "group_id": "",
+      "privilege": 0
+    },
+    {
+      "id_number": "900055",
+      "name": "Dummy Adi Siregar",
+      "card": 0,
+      "group_id": "",
+      "privilege": 0
+    },
+    {
+      "id_number": "90047",
+      "name": "Dummy Adi Wijaya",
+      "card": 0,
+      "group_id": "",
+      "privilege": 0
+    },
+    {
+      "id_number": "922",
+      "name": "Dummy Adi, A.Md",
+      "card": 0,
+      "group_id": "",
+      "privilege": 0
+    },
+    {
+      "id_number": "90025",
+      "name": "Dummy Adi, M.M.",
+      "card": 0,
+      "group_id": "",
+      "privilege": 0
+    },
+    {
+      "id_number": "924",
+      "name": "Dummy Adi, S.E.",
+      "card": 800023,
+      "group_id": "",
+      "privilege": 0
+    },
+    {
+      "id_number": "900021",
+      "name": "Dummy Adi, S.H.",
+      "card": 0,
+      "group_id": "",
+      "privilege": 0
+    },
+    {
+      "id_number": "9026",
+      "name": "Dummy Adi, S.KM",
+      "card": 0,
+      "group_id": "",
+      "privilege": 0
+    },
+    {
+      "id_number": "900019",
+      "name": "Dummy Adi, S.Kom",
+      "card": 0,
+      "group_id": "",
+      "privilege": 0
+    },
+    {
+      "id_number": "923",
+      "name": "Dummy Adi, S.Pd",
+      "card": 0,
+      "group_id": "",
+      "privilege": 0
+    },
+    {
+      "id_number": "927",
+      "name": "Dummy Adi, S.Psi",
+      "card": 0,
+      "group_id": "",
+      "privilege": 0
+    },
+    {
+      "id_number": "900020",
+      "name": "Dummy Adi, S.ST",
+      "card": 0,
+      "group_id": "",
+      "privilege": 0
+    },
+    {
+      "id_number": "900018",
+      "name": "Dummy Adi, S.T.",
+      "card": 0,
+      "group_id": "",
+      "privilege": 0
+    },
+    {
+      "id_number": "9032",
+      "name": "Dummy Andi, A.Md",
+      "card": 0,
+      "group_id": "",
+      "privilege": 0
+    },
+    {
+      "id_number": "90035",
+      "name": "Dummy Andi, M.M.",
+      "card": 0,
+      "group_id": "",
+      "privilege": 0
+    },
+    {
+      "id_number": "934",
+      "name": "Dummy Andi, S.E.",
+      "card": 800033,
+      "group_id": "",
+      "privilege": 0
+    },
+    {
+      "id_number": "900031",
+      "name": "Dummy Andi, S.H.",
+      "card": 0,
+      "group_id": "",
+      "privilege": 0
+    },
+    {
+      "id_number": "90036",
+      "name": "Dummy Andi, S.KM",
+      "card": 0,
+      "group_id": "",
+      "privilege": 0
+    },
+    {
+      "id_number": "9",
+      "name": "Dummy Andi, S.Kom",
+      "card": 0,
+      "group_id": "",
+      "privilege": 14
+    },
+    {
+      "id_number": "933",
+      "name": "Dummy Andi, S.Pd",
+      "card": 0,
+      "group_id": "",
+      "privilege": 0
+    },
+    {
+      "id_number": "937",
+      "name": "Dummy Andi, S.Psi",
+      "card": 0,
+      "group_id": "",
+      "privilege": 0
+    },
+    {
+      "id_number": "930",
+      "name": "Dummy Andi, S.ST",
+      "card": 0,
+      "group_id": "",
+      "privilege": 0
+    },
+    {
+      "id_number": "9028",
+      "name": "Dummy Andi, S.T.",
+      "card": 0,
+      "group_id": "",
+      "privilege": 0
+    },
+    {
+      "id_number": "942",
+      "name": "Dummy Anisa, A.Md",
+      "card": 0,
+      "group_id": "",
+      "privilege": 0
+    },
+    {
+      "id_number": "90044",
+      "name": "Dummy Anisa, S.E.",
+      "card": 0,
+      "group_id": "",
+      "privilege": 0
+    },
+    {
+      "id_number": "90041",
+      "name": "Dummy Anisa, S.H.",
+      "card": 0,
+      "group_id": "",
+      "privilege": 0
+    },
+    {
+      "id_number": "9039",
+      "name": "Dummy Anisa, S.Kom",
+      "card": 0,
+      "group_id": "",
+      "privilege": 0
+    },
+    {
+      "id_number": "9043",
+      "name": "Dummy Anisa, S.Pd",
+      "card": 0,
+      "group_id": "",
+      "privilege": 0
+    },
+    {
+      "id_number": "90040",
+      "name": "Dummy Anisa, S.ST",
+      "card": 0,
+      "group_id": "",
+      "privilege": 0
+    },
+    {
+      "id_number": "90038",
+      "name": "Dummy Anisa, S.T.",
+      "card": 0,
+      "group_id": "",
+      "privilege": 0
+    },
+    {
+      "id_number": "900001",
+      "name": "Dummy Karyawan 000000001",
+      "card": 0,
+      "group_id": "",
+      "privilege": 0
+    },
+    {
+      "id_number": "902",
+      "name": "Dummy Karyawan 000000002",
+      "card": 0,
+      "group_id": "",
+      "privilege": 0
+    },
+    {
+      "id_number": "9003",
+      "name": "Dummy Karyawan 000000003",
+      "card": 0,
+      "group_id": "",
+      "privilege": 0
+    },
+    {
+      "id_number": "904",
+      "name": "Dummy Karyawan 000000004",
+      "card": 0,
+      "group_id": "",
+      "privilege": 0
+    },
+    {
+      "id_number": "905",
+      "name": "Dummy Karyawan 000000005",
+      "card": 0,
+      "group_id": "",
+      "privilege": 0
+    },
+    {
+      "id_number": "906",
+      "name": "Dummy Karyawan 000000006",
+      "card": 0,
+      "group_id": "",
+      "privilege": 0
+    },
+    {
+      "id_number": "907",
+      "name": "Dummy Karyawan 000000007",
+      "card": 0,
+      "group_id": "",
+      "privilege": 0
+    },
+    {
+      "id_number": "90008",
+      "name": "Dummy Karyawan 000000008",
+      "card": 0,
+      "group_id": "",
+      "privilege": 0
+    },
+    {
+      "id_number": "910",
+      "name": "Dummy Karyawan 000000009",
+      "card": 0,
+      "group_id": "",
+      "privilege": 0
+    },
+    {
+      "id_number": "90010",
+      "name": "Dummy Karyawan 000000010",
+      "card": 0,
+      "group_id": "",
+      "privilege": 0
+    },
+    {
+      "id_number": "911",
+      "name": "Dummy Karyawan 000000011",
+      "card": 0,
+      "group_id": "",
+      "privilege": 0
+    },
+    {
+      "id_number": "912",
+      "name": "Dummy Karyawan 000000012",
+      "card": 0,
+      "group_id": "",
+      "privilege": 0
+    },
+    {
+      "id_number": "913",
+      "name": "Dummy Karyawan 000000013",
+      "card": 0,
+      "group_id": "",
+      "privilege": 0
+    },
+    {
+      "id_number": "914",
+      "name": "Dummy Karyawan 000000014",
+      "card": 0,
+      "group_id": "",
+      "privilege": 0
+    },
+    {
+      "id_number": "9015",
+      "name": "Dummy Karyawan 000000015",
+      "card": 0,
+      "group_id": "",
+      "privilege": 0
+    },
+    {
+      "id_number": "9016",
+      "name": "Dummy Karyawan 000000016",
+      "card": 0,
+      "group_id": "",
+      "privilege": 0
+    },
+    {
+      "id_number": "900017",
+      "name": "Dummy Karyawan 000000017",
+      "card": 0,
+      "group_id": "",
+      "privilege": 0
+    }
+  ],
+  "meta": {
+    "total": 56
+  }
+}
