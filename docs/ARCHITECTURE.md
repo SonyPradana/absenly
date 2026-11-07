@@ -628,7 +628,7 @@ Schedule save/hot reload:
 `GET /api/v1/health` returns the last sync status, not a device handshake on every request:
 
 ```json
-{ "data": { "ok": true, "last_sync": { "at": "...", "ok": true, "users": 56, "records": 2518 } } }
+{ "data": { "ok": true, "last_sync": { "at": "...", "ok": true, "users": 12, "records": 240 } } }
 ```
 
 API v1 is the full contract for the dashboard. Phase 3/4 admin endpoints are implemented, including work-exceptions, sync, and Excel export; phase 6 adds the employee-only `/me/*` endpoints and the `/me` HTML page.

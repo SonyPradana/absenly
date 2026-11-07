@@ -84,6 +84,7 @@ jobs:
           Copy-Item dist/app.exe "release/$name/app.exe"
           Copy-Item .env.example "release/$name/.env.example"
           Copy-Item README.md "release/$name/README.md"
+          Copy-Item schedule.json "release/$name/schedule.json"
           Compress-Archive -Path "release/$name" -DestinationPath "release/$name.zip"
           $hash = (Get-FileHash "release/$name.zip" -Algorithm SHA256).Hash.ToLower()
           "$hash  $name.zip" | Out-File -Encoding ascii "release/$name.zip.sha256"
