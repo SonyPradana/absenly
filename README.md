@@ -127,7 +127,7 @@ Default is `recap`; `--mode` is a comma list. Without `--user`, only employees w
 - **Generate**: one Excel file in any mode combination, plus a public one-employee share link.
 - **Log Absensi**: today or a date range, employee filter, 100 raw punches per page.
 - **Karyawan**: display name, prefix/suffix title, active flag, and the login column (create/reset/delete). Reset restores the default password `satutekad` and keeps the username; both actions revoke that employee's live sessions.
-- **Jadwal**: base week plus date-range overrides, written atomically and hot-reloaded. The env fallback is read-only.
+- **Jadwal**: base week plus date-range overrides, written atomically and hot-reloaded. Import/export the calendar as `schedule.json`; import replaces the whole calendar (base + overrides) after a summary confirmation. The env fallback is read-only, so import is disabled there while export still works.
 - **Hooks**: a thin event stream (`attendance.changed`, `sync.done`, `sync.failed`) plus optional webhook push with an HMAC signature. The server announces _that_ something changed; a bot or internal tool asks for the detail itself.
 - **Settings**: password, backup download, logout-all, sync schedules, sync trigger.
 - **About**: on-demand read-only device probe.
