@@ -529,6 +529,15 @@ describe("web employees tab", () => {
   });
 });
 
+describe("web layout", () => {
+  test("the content column stays narrow on large monitors", async () => {
+    const server = start();
+    const css = await (await fetch(`${server.base}/assets/app.css`)).text();
+    expect(css).toContain("width: min(1200px, 100%)");
+    expect(css).not.toContain("1400px");
+  });
+});
+
 describe("web hooks tab", () => {
   test("serves the hooks page and its assets to an admin", async () => {
     const server = start();

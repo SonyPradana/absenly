@@ -132,8 +132,8 @@ After a successful sync:
     "last_sync": {
       "at": "2026-10-20T07:30:00+07:00",
       "ok": true,
-      "users": 56,
-      "records": 2518
+      "users": 12,
+      "records": 240
     }
   }
 }
@@ -585,8 +585,8 @@ curl -sS "$BASE/api/v1/sync/status" \
       "started_at": "2026-10-20T07:29:58+07:00",
       "finished_at": "2026-10-20T07:30:00+07:00",
       "duration_ms": 1241,
-      "users": 56,
-      "records": 2518,
+      "users": 12,
+      "records": 240,
       "first_date": "2026-09-28",
       "last_date": "2026-10-20",
       "ok": true,
@@ -665,7 +665,7 @@ X-Rekap-Event: attendance.changed
 X-Rekap-Signature: sha256=...
 
 {"id":42,"event":"attendance.changed","at":"2026-11-05T08:12:00+07:00",
- "data":{"from":"2026-11-05","to":"2026-11-05","inserted":12,"records":3524,"users":56}}
+ "data":{"from":"2026-11-05","to":"2026-11-05","inserted":12,"records":300,"users":12}}
 ```
 
 Timeout is 5 seconds, one attempt, no retry: a failed push leaves `attempts`/`last_error` on the event and the receiver catches up with `?since=`. Loopback and link-local URLs are rejected with `400 BLOCKED_URL`; a viewer answers `403 READ_ONLY_VIEWER`.
@@ -674,8 +674,8 @@ Timeout is 5 seconds, one attempt, no retry: a failed push leaves `attempts`/`la
 {
   "data": {
     "ok": true,
-    "users": 56,
-    "records": 2518,
+    "users": 12,
+    "records": 240,
     "first_date": "2026-09-28",
     "last_date": "2026-10-20",
     "duration_ms": 1241,

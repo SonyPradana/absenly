@@ -271,8 +271,8 @@ Public, no auth. Does not handshake with the device.
     "last_sync": {
       "at": "2026-10-20T07:30:00+07:00",
       "ok": true,
-      "users": 56,
-      "records": 2518
+      "users": 12,
+      "records": 240
     }
   }
 }
@@ -518,8 +518,8 @@ Admin.
       "started_at": "2026-10-20T07:29:58+07:00",
       "finished_at": "2026-10-20T07:30:00+07:00",
       "duration_ms": 1241,
-      "users": 56,
-      "records": 2518,
+      "users": 12,
+      "records": 240,
       "first_date": "2026-09-28",
       "last_date": "2026-10-20",
       "ok": true,
@@ -571,8 +571,8 @@ Payloads are **thin by design**: counts and dates only, never employee names, PI
           "from": "2026-11-05",
           "to": "2026-11-05",
           "inserted": 12,
-          "records": 3524,
-          "users": 56
+          "records": 300,
+          "users": 12
         },
         "delivered_at": null,
         "attempts": 0,
@@ -603,8 +603,8 @@ Admin. No body. Full snapshot sync, upsert, no delete.
 {
   "data": {
     "ok": true,
-    "users": 56,
-    "records": 2518,
+    "users": 12,
+    "records": 240,
     "first_date": "2026-09-28",
     "last_date": "2026-10-20",
     "duration_ms": 1241,
@@ -785,14 +785,14 @@ hides inactive employees from recap/user/poin sheets.
       "last_sync": {
         "at": "2026-10-21T14:43:22+07:00",
         "ok": true,
-        "users": 56,
-        "records": 2712,
+        "users": 12,
+        "records": 265,
         "duration_ms": 4120,
         "first_date": "2026-09-28",
         "last_date": "2026-10-21",
         "error": null
       },
-      "counts": { "employees": 56, "attendance": 2712 }
+      "counts": { "employees": 12, "attendance": 265 }
     },
     "employees": [
       {
