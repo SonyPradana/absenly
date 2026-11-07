@@ -178,65 +178,6 @@ export function render(main, ctx) {
   let editing = null;
   let errorMessage = null;
   let notice = null;
-  function exportCalendar() {
-    const data = JSON.stringify(normalizeCalendar(calendar), null, 2);
-    const blob = new Blob([data], { type: "application/json" });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = "schedule.json";
-    document.body.append(a);
-    a.click();
-    a.remove();
-    setTimeout(() => URL.revokeObjectURL(url), 1000);
-  }
-
-  async function importCalendar() {
-    const file = importInput.files.item(0);
-    // Clear the value so picking the same file twice fires change again.
-    importInput.value = "";
-    if (!file) return;
-
-    let normalized;
-    try {
-      normalized = normalizeCalendar(JSON.parse(await file.text()));
-    } catch {
-      errorMessage = "File bukan kalender JSON yang valid. Kalender tidak diubah.";
-      build();
-      return;
-    }
-
-    const invalid = validateCalendar(normalized);
-    if (invalid) {
-      errorMessage = `File tidak valid: ${invalid}. Kalender tidak diubah.`;
-      build();
-      return;
-    }
-
-    const workdays = (item) => Object.values(item.base).filter((day) => day !== null).length;
-    const message =
-      "Ganti total kalender dengan isi file?\n\n" +
-      `Hari kerja: ${workdays(calendar)} → ${workdays(normalized)}; ` +
-      `override: ${calendar.overrides.length} → ${normalized.overrides.length}.\n` +
-      "Base dan override saat ini akan diganti total.";
-    if (!window.confirm(message)) return;
-
-    try {
-      await postJson("/schedule", { calendar: normalized });
-      notice = "Jadwal diimpor dan tersimpan. Server memuat ulang tanpa restart.";
-      window.location.reload();
-    } catch (error) {
-      errorMessage = ctx.errorText(error);
-      build();
-    }
-  }
-
-  const importInput = h("input", {
-    type: "file",
-    accept: ".json,application/json",
-    style: { display: "none" },
-    onchange: () => importCalendar(),
-  });
 
   function renderOverrideForm() {
     if (editing === null) return null;
@@ -494,22 +435,6 @@ export function render(main, ctx) {
             "button",
             { class: "button", type: "button", onclick: () => window.location.reload() },
             "Muat ulang",
-          ),
-          h(
-            "button",
-            { class: "button", type: "button", onclick: () => exportCalendar() },
-            "Ekspor",
-          ),
-          importInput,
-          h(
-            "button",
-            {
-              class: "button",
-              type: "button",
-              disabled: readonly,
-              onclick: () => importInput.click(),
-            },
-            "Impor",
           ),
           readonly ? null : saveButton,
         ),

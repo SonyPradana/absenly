@@ -74,8 +74,8 @@ Example `--json`:
 {
   "data": {
     "ok": true,
-    "users": 56,
-    "records": 2518,
+    "users": 12,
+    "records": 240,
     "first_date": "2026-09-28",
     "last_date": "2026-10-20",
     "duration_ms": 1241,
@@ -93,8 +93,8 @@ Read-only diagnostic: connect, read counts, disconnect. It needs ZK config only;
   "data": {
     "host": "192.0.2.10",
     "port": 4370,
-    "users": 56,
-    "records": 2518,
+    "users": 12,
+    "records": 240,
     "users_cap": 2000,
     "records_cap": 100000
   }
@@ -360,12 +360,12 @@ Viewer, reachable:
     "reachable": true,
     "app_version": "0.1.0",
     "schema_version": 5,
-    "counts": { "employees": 56, "attendance": 3187 },
+    "counts": { "employees": 12, "attendance": 310 },
     "last_sync": {
       "at": "2026-10-26T12:24:58+07:00",
       "ok": true,
-      "users": 56,
-      "records": 3187,
+      "users": 12,
+      "records": 310,
       "duration_ms": 4120,
       "first_date": "2026-09-28",
       "last_date": "2026-10-26",

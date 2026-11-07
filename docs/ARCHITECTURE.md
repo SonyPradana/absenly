@@ -614,7 +614,7 @@ Dashboard tabs:
 - **Generate**: one Excel file; modes Raw, Recap, User, Poin, or All (`raw,recap,user,poin`). Raw is the full workbook; Recap/User/Poin use a multi-employee selection. User is one row per punch with a `Jadwal` reference column; Poin is one row per day. Default range is the current month through today; filename is `absen-{mode}-{from}_{to}.xlsx`. A separate card creates a public 24-hour individual recap link for one employee/month.
 - **Log Absensi**: today or date range, employee filter, 100 raw punches per page.
 - **Karyawan**: edit display name, prefix/suffix, active; device name is read-only; composed-name preview. The Akun column shows only whether the employee has a login (`ada`/`belum`, from `/api/v1/users` joined on `employee_id_number`); Buat/Reset/Hapus live inside the Edit modal, which never prints the stored password — only that a new one is `satutekad`. A new account uses the PIN as username and the default password `satutekad`; Reset restores that password and keeps the username; both revoke that employee's live sessions. The whole column is hidden on a viewer.
-- **Jadwal**: base week + date overrides, including holidays/expired overrides. Writes the whole calendar atomically; env fallback is read-only. Import replaces the whole calendar (base + overrides) after a summary confirmation; export downloads the displayed calendar as `schedule.json`. Both run client-side and reuse `POST /schedule`.
+- **Jadwal**: base week + date overrides, including holidays/expired overrides. Writes the whole calendar atomically; env fallback is read-only.
 - **Settings**: runtime info, SQLite backup, logout-all, password change, DB-configured auto-sync schedules, and a read-only "Relay kolektor" card listing the env keys (`ABSEN_RELAY_ENABLED`/`_HOST`/`_PORT`/`_TOKEN`); the relay is configured in `.env`, not from the UI.
 - **Hooks**: webhook targets (URL, subscribed events, enable toggle, test, delete) and the delivery status of the last attempt. Collector only.
 - **About**: version, last sync, counts, and an on-demand read-only device probe.
@@ -628,7 +628,7 @@ Schedule save/hot reload:
 `GET /api/v1/health` returns the last sync status, not a device handshake on every request:
 
 ```json
-{ "data": { "ok": true, "last_sync": { "at": "...", "ok": true, "users": 56, "records": 2518 } } }
+{ "data": { "ok": true, "last_sync": { "at": "...", "ok": true, "users": 12, "records": 240 } } }
 ```
 
 API v1 is the full contract for the dashboard. Phase 3/4 admin endpoints are implemented, including work-exceptions, sync, and Excel export; phase 6 adds the employee-only `/me/*` endpoints and the `/me` HTML page.

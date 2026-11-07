@@ -529,22 +529,7 @@ describe("web employees tab", () => {
   });
 });
 
-describe("web schedule tab", () => {
-  test("import and export stay client-side and reuse the atomic save route", async () => {
-    const server = start();
-    const asset = await fetch(`${server.base}/assets/tabs/schedule.js`);
-    expect(asset.status).toBe(200);
-    const js = await asset.text();
-
-    expect(js).toContain('a.download = "schedule.json"');
-    expect(js).toContain('accept: ".json,application/json"');
-    expect(js).toContain("Ganti total kalender");
-    expect(js).toContain('postJson("/schedule"');
-    // Import is disabled on a viewer; export stays available.
-    expect(js).toContain("onclick: () => importInput.click()");
-    expect(js).toContain("disabled: readonly");
-  });
-
+describe("web layout", () => {
   test("the content column stays narrow on large monitors", async () => {
     const server = start();
     const css = await (await fetch(`${server.base}/assets/app.css`)).text();
