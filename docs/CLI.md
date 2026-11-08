@@ -358,7 +358,7 @@ Viewer, reachable:
     "role": "viewer",
     "relay_url": "http://10.42.0.2:3100",
     "reachable": true,
-    "app_version": "0.1.0",
+    "app_version": "0.2.1",
     "schema_version": 5,
     "counts": { "employees": 12, "attendance": 310 },
     "last_sync": {

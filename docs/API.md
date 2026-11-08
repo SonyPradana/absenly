@@ -780,7 +780,7 @@ hides inactive employees from recap/user/poin sheets.
 {
   "data": {
     "meta": {
-      "app_version": "0.1.0",
+      "app_version": "0.2.1",
       "schema_version": 5,
       "last_sync": {
         "at": "2026-10-21T14:43:22+07:00",
