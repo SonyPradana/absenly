@@ -24,8 +24,11 @@ Behaviour that is not acceptable:
 
 ## Enforcement
 
-Report unacceptable behaviour to `sonypradana@gmail.com`. All reports will be
-reviewed and investigated, and the maintainer will respond as appropriate.
+Report unacceptable behaviour privately through GitHub by opening a
+[report to the maintainer](https://github.com/SonyPradana) or a
+[private security advisory](https://github.com/SonyPradana/absenly/security/advisories/new)
+if the report involves sensitive material. All reports will be reviewed and
+investigated, and the maintainer will respond as appropriate.
 Confidentiality will be respected. Maintainers may remove comments, close
 threads, or ban contributors who break these rules.
 

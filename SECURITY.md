@@ -4,9 +4,8 @@
 
 Please **do not** open a public issue for a security problem. Use GitHub's
 [private vulnerability reporting](https://github.com/SonyPradana/absenly/security/advisories/new)
-(Security → Report a vulnerability) or email the maintainer at
-`sonypradana@gmail.com`. You will get a reply as soon as possible; please allow
-time for a fix before disclosing publicly.
+(Security → Report a vulnerability). You will get a reply as soon as possible;
+please allow time for a fix before disclosing publicly.
 
 ## Scope
 
