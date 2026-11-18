@@ -519,20 +519,22 @@ dialog.modal::backdrop {
   justify-content: flex-end;
 }
 
-/* Home layout: every card is a direct grid item with a named area, so rows stay
-   flush and the shorter card in a pair stretches instead of leaving a hole. */
+/* Home layout: named areas only. No `fr` rows and no stretching — every card is
+   exactly as tall as its content, so nothing is padded to fill a quota. Cards are
+   paired by content size (tall next to tall, short next to short) so a row still
+   ends tight. */
 .dashboard {
   display: grid;
-  grid-template-columns: minmax(0, 1.12fr) minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   grid-template-areas:
     "today today"
-    "health chart"
-    "late streak"
-    "stable progress"
+    "health late"
+    "streak stable"
+    "chart progress"
     "logs logs"
     "note note";
   gap: var(--gap);
-  align-items: stretch;
+  align-items: start;
 }
 
 .dashboard > .area-today {
@@ -577,10 +579,10 @@ dialog.modal::backdrop {
     grid-template-areas:
       "today"
       "health"
-      "chart"
       "late"
       "streak"
       "stable"
+      "chart"
       "progress"
       "logs"
       "note";

@@ -3,6 +3,7 @@
 import type { DailyRow } from "../recap.ts";
 import type { ShareMonthMetrics } from "../share-report.ts";
 import { esc } from "./html.ts";
+import { assetUrl } from "./assets.ts";
 
 export interface ShareToday {
   holiday: boolean;
@@ -162,7 +163,7 @@ function shell(title: string, body: string): string {
   <meta name="robots" content="noindex, nofollow">
   <meta name="referrer" content="no-referrer">
   <title>${esc(title)}</title>
-  <link rel="stylesheet" href="/assets/app.css">
+  <link rel="stylesheet" href="${assetUrl("app.css")}">
 </head>
 <body class="share-page">
   <header class="topbar share-topbar">
