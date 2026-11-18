@@ -47,6 +47,12 @@ function card(title, subtitle, ...children) {
   );
 }
 
+// Named grid areas live in app.css; each card claims exactly one.
+function placed(element, area) {
+  element.classList.add(`area-${area}`);
+  return element;
+}
+
 function previousMonthValue(month) {
   const [year, value] = month.split("-").map(Number);
   const date = new Date(Date.UTC(year, value - 2, 1));
@@ -300,161 +306,140 @@ export async function render(main, ctx) {
       : `Jadwal ${todaySchedule.in}–${todaySchedule.out}`;
 
   const dashboard = h("div", { class: "dashboard" });
+  const workdayPercent =
+    metrics.workdaysTotal === 0
+      ? 0
+      : Math.round((metrics.workdaysElapsed / metrics.workdaysTotal) * 100);
 
-  dashboard.append(
+  const todayCard = h(
+    "section",
+    { class: "card" },
+    h("h2", null, todayTitle),
+    h("p", { class: "card-sub" }, todayNote),
     h(
-      "section",
-      { class: "card" },
-      h("h2", null, todayTitle),
-      h("p", { class: "card-sub" }, todayNote),
-      h(
-        "div",
-        { class: "grid stats" },
-        stat("Karyawan aktif", String(today.active), "profil active=1"),
-        stat(
-          "Hadir",
-          todaySchedule === null ? "—" : String(today.hadir),
-          today.active === 0
-            ? "belum ada karyawan aktif"
-            : `${formatPercent(today.active === 0 ? 0 : today.hadir / today.active)} dari aktif`,
-        ),
-        stat("Belum pulang", String(today.belumPulang), `${today.sudahPulang} sudah pulang`),
-        stat("Belum absen", String(today.belumAbsen), `${today.late} telat hari ini`),
-        stat(
-          "Tepat waktu",
-          formatPercent(today.punctualityPresent),
-          `dari yang hadir · ${formatPercent(today.punctualityActive)} dari aktif`,
-        ),
+      "div",
+      { class: "stats" },
+      stat("Karyawan aktif", String(today.active), "profil active=1"),
+      stat(
+        "Hadir",
+        todaySchedule === null ? "—" : String(today.hadir),
+        today.active === 0
+          ? "belum ada karyawan aktif"
+          : `${formatPercent(today.active === 0 ? 0 : today.hadir / today.active)} dari aktif`,
+      ),
+      stat("Belum pulang", String(today.belumPulang), `${today.sudahPulang} sudah pulang`),
+      stat("Belum absen", String(today.belumAbsen), `${today.late} telat hari ini`),
+      stat(
+        "Tepat waktu",
+        formatPercent(today.punctualityPresent),
+        `dari yang hadir · ${formatPercent(today.punctualityActive)} dari aktif`,
       ),
     ),
   );
 
-  dashboard.append(
+  const healthCard = card(
+    "Kesehatan bulan ini",
+    `${monthLabel(month)} · ${metrics.workdaysElapsed} dari ${metrics.workdaysTotal} hari kerja berjalan`,
     h(
       "div",
-      { class: "grid two-col" },
-      card(
-        "Kesehatan bulan ini",
-        `${monthLabel(month)} · ${metrics.workdaysElapsed} dari ${metrics.workdaysTotal} hari kerja berjalan`,
-        h(
-          "div",
-          { class: "grid stats" },
-          stat("Rata-rata telat", formatMinutes(metrics.avgLatePerLateDay), "per kejadian telat"),
-          stat(
-            "Karyawan pernah telat",
-            String(metrics.uniqueLate),
-            `${formatPercent(metrics.active === 0 ? null : metrics.uniqueLate / metrics.active)} dari ${metrics.active} aktif`,
-          ),
-          stat("Kejadian telat", String(metrics.lateEmployeeDays), `${metrics.lateMinutes} menit`),
-          stat(
-            "Kehadiran",
-            formatPercent(metrics.attendanceRate),
-            `${metrics.presentEmployeeDays} dari ${metrics.expectedEmployeeDays} hari-orang`,
-          ),
-        ),
-        h(
-          "p",
-          { class: "small muted" },
-          metrics.worstDay === null
-            ? "Belum ada keterlambatan bulan ini."
-            : `Hari terburuk: ${weekdayName(weekdayForDate(metrics.worstDay.date))}, ${formatDate(metrics.worstDay.date)} · ${formatMinutes(metrics.worstDay.minutes)} dari ${metrics.worstDay.lateDays} karyawan.`,
-        ),
+      { class: "stats" },
+      stat("Rata-rata telat", formatMinutes(metrics.avgLatePerLateDay), "per kejadian telat"),
+      stat(
+        "Karyawan pernah telat",
+        String(metrics.uniqueLate),
+        `${formatPercent(metrics.active === 0 ? null : metrics.uniqueLate / metrics.active)} dari ${metrics.active} aktif`,
       ),
-      card(
-        "Progres bulan",
-        "Dihitung dari calendar, bukan asumsi Senin–Sabtu.",
-        h(
-          "div",
-          null,
-          h(
-            "p",
-            { class: "small muted" },
-            `Hari kerja: ${metrics.workdaysElapsed}/${metrics.workdaysTotal} · sisa ${metrics.workdaysRemaining}`,
-          ),
-          h(
-            "div",
-            {
-              class: "progress",
-              role: "progressbar",
-              "aria-valuemin": "0",
-              "aria-valuemax": "100",
-              "aria-valuenow":
-                metrics.workdaysTotal === 0
-                  ? "0"
-                  : String(Math.round((metrics.workdaysElapsed / metrics.workdaysTotal) * 100)),
-            },
-            h("span", {
-              style: {
-                width: `${metrics.workdaysTotal === 0 ? 0 : (metrics.workdaysElapsed / metrics.workdaysTotal) * 100}%`,
-              },
-            }),
-          ),
-          h(
-            "p",
-            { class: "small muted" },
-            `Kalender: ${metrics.daysElapsed}/${metrics.daysTotal} hari · ${metrics.uniquePresent} karyawan pernah hadir`,
-          ),
-          h(
-            "p",
-            { class: "small muted" },
-            `Jam WIB: ${new Intl.DateTimeFormat("id-ID", { timeZone: "Asia/Jakarta", hour: "2-digit", minute: "2-digit", hour12: false }).format(new Date())}`,
-          ),
-        ),
+      stat("Kejadian telat", String(metrics.lateEmployeeDays), `${metrics.lateMinutes} menit`),
+      stat(
+        "Kehadiran",
+        formatPercent(metrics.attendanceRate),
+        `${metrics.presentEmployeeDays} dari ${metrics.expectedEmployeeDays} hari-orang`,
       ),
+    ),
+    h(
+      "p",
+      { class: "small muted" },
+      metrics.worstDay === null
+        ? "Belum ada keterlambatan bulan ini."
+        : `Hari terburuk: ${weekdayName(weekdayForDate(metrics.worstDay.date))}, ${formatDate(metrics.worstDay.date)} · ${formatMinutes(metrics.worstDay.minutes)} dari ${metrics.worstDay.lateDays} karyawan.`,
     ),
   );
 
-  dashboard.append(
-    h(
-      "div",
-      { class: "grid two-col" },
-      card(
-        "Menit telat per hari",
-        "Total menit telat bulan ini, dikelompokkan per hari.",
-        metrics.lateMinutes === 0
-          ? h("p", { class: "empty" }, "Belum ada telat bulan ini.")
-          : chart(metrics.byWeekday),
-      ),
-      card(
-        "Paling stabil",
-        "0 telat, 0 pulang cepat, minimal 1 hari hadir.",
-        rankingList(
-          stable,
-          (item) => `${item.days} hari · rata-rata masuk ${formatSeconds(item.avgInSeconds)}`,
-          "Belum ada karyawan dengan hari sempurna.",
-        ),
-      ),
+  const chartCard = card(
+    "Menit telat per hari",
+    "Total menit telat bulan ini, dikelompokkan per hari.",
+    metrics.lateMinutes === 0
+      ? h("p", { class: "empty" }, "Belum ada telat bulan ini.")
+      : chart(metrics.byWeekday),
+  );
+
+  const lateCard = card(
+    "Paling sering telat",
+    "Jumlah hari telat, lalu total menit. ↑↓ = peringkat vs bulan lalu.",
+    rankingList(
+      late,
+      (item) => `${item.lateDays} hari · ${formatMinutes(item.minutes)}`,
+      "Belum ada keterlambatan bulan ini.",
+      (item) => movementBadge(item.movement),
     ),
   );
 
-  dashboard.append(
+  const streakCard = card(
+    "Telat berturut-turut",
+    "Streak terpanjang bulan ini. Libur calendar dilewati; tidak masuk memutus streak.",
+    rankingList(
+      streaks,
+      (item) =>
+        `${item.days} hari · ${
+          item.from === item.to
+            ? formatDateShort(item.from)
+            : `${formatDateShort(item.from)}–${formatDateShort(item.to)}`
+        }`,
+      "Belum ada streak telat bulan ini.",
+    ),
+  );
+
+  const stableCard = card(
+    "Paling stabil",
+    "0 telat, 0 pulang cepat, minimal 1 hari hadir.",
+    rankingList(
+      stable,
+      (item) => `${item.days} hari · rata-rata masuk ${formatSeconds(item.avgInSeconds)}`,
+      "Belum ada karyawan dengan hari sempurna.",
+    ),
+  );
+
+  const progressCard = card(
+    "Progres bulan",
+    "Dihitung dari calendar, bukan asumsi Senin–Sabtu.",
     h(
       "div",
-      { class: "grid two-col" },
-      card(
-        "Paling sering telat",
-        "Jumlah hari telat, lalu total menit. ↑↓ = peringkat vs bulan lalu.",
-        rankingList(
-          late,
-          (item) => `${item.lateDays} hari · ${formatMinutes(item.minutes)}`,
-          "Belum ada keterlambatan bulan ini.",
-          (item) => movementBadge(item.movement),
-        ),
-      ),
-      card(
-        "Telat berturut-turut",
-        "Streak terpanjang bulan ini. Libur calendar dilewati; tidak masuk memutus streak.",
-        rankingList(
-          streaks,
-          (item) =>
-            `${item.days} hari · ${
-              item.from === item.to
-                ? formatDateShort(item.from)
-                : `${formatDateShort(item.from)}–${formatDateShort(item.to)}`
-            }`,
-          "Belum ada streak telat bulan ini.",
-        ),
-      ),
+      { class: "progress-hero" },
+      h("span", { class: "progress-value" }, String(metrics.workdaysElapsed)),
+      h("span", { class: "progress-of" }, `/ ${metrics.workdaysTotal}`),
+      h("span", { class: "progress-unit" }, "hari kerja"),
+    ),
+    h(
+      "div",
+      {
+        class: "progress",
+        role: "progressbar",
+        "aria-label": "Hari kerja bulan ini",
+        "aria-valuemin": "0",
+        "aria-valuemax": "100",
+        "aria-valuenow": String(workdayPercent),
+      },
+      h("span", { style: { width: `${workdayPercent}%` } }),
+    ),
+    h(
+      "p",
+      { class: "small muted" },
+      `Sisa ${metrics.workdaysRemaining} hari kerja · kalender ${metrics.daysElapsed}/${metrics.daysTotal} hari · ${metrics.uniquePresent} karyawan pernah hadir`,
+    ),
+    h(
+      "p",
+      { class: "small muted" },
+      `Jam WIB: ${new Intl.DateTimeFormat("id-ID", { timeZone: "Asia/Jakarta", hour: "2-digit", minute: "2-digit", hour12: false }).format(new Date())}`,
     ),
   );
 
@@ -516,13 +501,23 @@ export async function render(main, ctx) {
     ),
   );
   logCard.classList.add("card-scroll");
-  dashboard.append(logCard);
 
   dashboard.append(
-    h(
-      "p",
-      { class: "small muted" },
-      "IN/OUT dihitung dari waktu: punch paling awal sebelum 10:00 adalah IN, paling akhir >= 10:00 adalah OUT. Kolom punch/verify tetap ditampilkan sebagai data mentah.",
+    placed(todayCard, "today"),
+    placed(healthCard, "health"),
+    placed(chartCard, "chart"),
+    placed(lateCard, "late"),
+    placed(streakCard, "streak"),
+    placed(stableCard, "stable"),
+    placed(progressCard, "progress"),
+    placed(logCard, "logs"),
+    placed(
+      h(
+        "p",
+        { class: "small muted" },
+        "IN/OUT dihitung dari waktu: punch paling awal sebelum 10:00 adalah IN, paling akhir >= 10:00 adalah OUT. Kolom punch/verify tetap ditampilkan sebagai data mentah.",
+      ),
+      "note",
     ),
   );
 
