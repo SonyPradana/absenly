@@ -7,6 +7,7 @@ import { DEFAULT_EMPLOYEE_PASSWORD } from "../src/auth.ts";
 import type { ScheduleCalendar } from "../src/schedule.ts";
 import { ScheduleStore } from "../src/schedule-store.ts";
 import { startServer } from "../src/web/server.ts";
+import { assetHash } from "../src/web/assets.ts";
 
 const NOW = new Date("2026-10-22T10:00:00+07:00");
 
@@ -151,6 +152,29 @@ describe("web shell and auth", () => {
     const csp = shell.headers.get("content-security-policy") ?? "";
     expect(csp).toContain("script-src 'self'");
     expect(shell.headers.get("x-frame-options")).toBe("DENY");
+  });
+
+  test("assets revalidate on content hash instead of being cached for an hour", async () => {
+    const server = start();
+
+    const first = await fetch(`${server.base}/assets/app.css`);
+    expect(first.status).toBe(200);
+    expect(first.headers.get("cache-control")).toBe("no-cache");
+    const etag = first.headers.get("etag");
+    expect(etag).not.toBeNull();
+    // A version+path tag never changes between edits, which is what served a
+    // stale stylesheet for up to an hour after a deploy.
+    expect(etag).not.toContain("app.css");
+
+    const again = await fetch(`${server.base}/assets/app.css`, {
+      headers: { "if-none-match": etag ?? "" },
+    });
+    expect(again.status).toBe(304);
+
+    const cookie = await login(server.base);
+    const html = await (await fetch(`${server.base}/`, { headers: { cookie } })).text();
+    expect(html).toContain(`/assets/app.css?v=${assetHash("app.css")}`);
+    expect(html).toContain(`/assets/app.js?v=${assetHash("app.js")}`);
   });
 
   test("throttles failed logins after five attempts", async () => {
@@ -763,7 +787,7 @@ describe("employee /me page", () => {
     expect(september).toContain('id="topbar-burger"');
     expect(september).toContain('aria-expanded="false"');
     expect(september).toContain('id="topbar-menu"');
-    expect(september).toContain('<script type="module" src="/assets/me-menu.js">');
+    expect(september).toContain("/assets/me-menu.js?v=");
     expect(september).not.toContain("onclick=");
 
     const menuAsset = await fetch(`${server.base}/assets/me-menu.js`);

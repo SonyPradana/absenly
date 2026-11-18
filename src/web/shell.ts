@@ -3,6 +3,7 @@
 import type { ScheduleCalendar } from "../schedule.ts";
 import type { SyncScheduleDto } from "../api/dto.ts";
 import { esc, escAttr, jsonAttr } from "./html.ts";
+import { assetUrl } from "./assets.ts";
 
 export interface Bootstrap {
   version: string;
@@ -58,7 +59,6 @@ function logoutHtml(): string {
 }
 
 export function renderShell(bootstrap: Bootstrap): string {
-  const version = encodeURIComponent(bootstrap.version);
   const links = navLinks(bootstrap.page, bootstrap.read_only);
   return `<!doctype html>
 <html lang="id">
@@ -67,7 +67,7 @@ export function renderShell(bootstrap: Bootstrap): string {
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light dark">
   <title>Absenly</title>
-  <link rel="stylesheet" href="/assets/app.css?v=${version}">
+  <link rel="stylesheet" href="${assetUrl("app.css")}">
 </head>
 <body class="app-body">
   <a class="skip" href="#main">Lewati ke konten</a>
@@ -93,7 +93,7 @@ export function renderShell(bootstrap: Bootstrap): string {
   <main id="main" tabindex="-1"><p class="muted">Memuat…</p></main>
   <div id="app" data-bootstrap="${jsonAttr(bootstrap)}" hidden></div>
   <noscript><style>.appbar,.nav-toggle,.nav-close,.nav-scrim{display:none}.app-body{flex-direction:column}.sidebar{position:static;visibility:visible;transform:none;width:auto;height:auto;max-height:none;flex:none;border-right:0;border-bottom:1px solid var(--line)}</style><p class="banner warn">Dashboard memerlukan JavaScript. Navigasi dan logout tetap bisa dipakai.</p></noscript>
-  <script type="module" src="/assets/app.js?v=${version}"></script>
+  <script type="module" src="${assetUrl("app.js")}"></script>
 </body>
 </html>`;
 }
@@ -124,7 +124,7 @@ export function renderLogin(options: {
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light dark">
   <title>Login - Absenly</title>
-  <link rel="stylesheet" href="/assets/app.css">
+  <link rel="stylesheet" href="${assetUrl("app.css")}">
 </head>
 <body class="login-page">
   <main class="login-card">
@@ -154,7 +154,7 @@ export function renderError(status: number, message: string): string {
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>${esc(status)} - Absenly</title>
-  <link rel="stylesheet" href="/assets/app.css">
+  <link rel="stylesheet" href="${assetUrl("app.css")}">
 </head>
 <body class="login-page">
   <main class="login-card">

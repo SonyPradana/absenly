@@ -34,7 +34,7 @@ import { stamp, today } from "../time.ts";
 import { isDue, parseSyncSchedule, SyncScheduleError } from "../auto-sync.ts";
 import { toSyncScheduleDto } from "../api/dto.ts";
 import type { WebConfig } from "../config.ts";
-import { CLIENT_ASSETS, contentTypeFor } from "./assets.ts";
+import { CLIENT_ASSETS, assetHash, contentTypeFor } from "./assets.ts";
 import { renderMeError, renderMePage, renderMePasswordPage } from "./me.ts";
 import { renderError, renderLogin, renderShell, type Bootstrap } from "./shell.ts";
 import { renderShareError, renderSharePage, type ShareToday } from "./share.ts";
@@ -344,7 +344,7 @@ async function bootstrapFor(ctx: WebContext, page: string): Promise<Bootstrap> {
   };
 }
 
-function serveAsset(path: string, version: string): Response {
+function serveAsset(path: string, request: Request): Response {
   const asset = CLIENT_ASSETS[path];
   if (asset === undefined) {
     return new Response("Not found", {
@@ -352,10 +352,17 @@ function serveAsset(path: string, version: string): Response {
       headers: securityHeaders(new Headers({ "content-type": "text/plain; charset=utf-8" })),
     });
   }
+  const etag = `"${assetHash(path)}"`;
   const headers = securityHeaders();
   headers.set("content-type", contentTypeFor(path));
-  headers.set("cache-control", "public, max-age=3600");
-  headers.set("etag", `"${version}-${path}"`);
+  // `no-cache` still stores the file but forces a revalidation: the content hash
+  // is the validator, so an unchanged asset costs one 304 and a changed one is
+  // never served stale after a deploy.
+  headers.set("cache-control", "no-cache");
+  headers.set("etag", etag);
+  if (request.headers.get("if-none-match") === etag) {
+    return new Response(null, { status: 304, headers });
+  }
   return new Response(asset, { headers });
 }
 
@@ -1070,7 +1077,7 @@ export async function handleWeb(
 
   if (path.startsWith("/assets/")) {
     if (request.method !== "GET") return methodNotAllowed("GET");
-    return serveAsset(path.slice("/assets/".length), ctx.version);
+    return serveAsset(path.slice("/assets/".length), request);
   }
 
   if (path === "/login") {

@@ -40,3 +40,18 @@ export function contentTypeFor(path: string): string {
   if (path.endsWith(".css")) return "text/css; charset=utf-8";
   return "text/plain; charset=utf-8";
 }
+
+// Assets are embedded at build time, so the app version does not change when a
+// stylesheet or tab is edited. Hashing the bytes makes a cached copy invalid the
+// moment the content changes, without a version bump or a server restart.
+export function assetHash(path: string): string {
+  const asset = CLIENT_ASSETS[path];
+  if (asset === undefined) return "missing";
+  return Bun.hash.crc32(asset).toString(36);
+}
+
+// Hash in the query string is what busts a browser cache that still holds an
+// older `?v=` (or no query at all) under a long max-age.
+export function assetUrl(path: string): string {
+  return `/assets/${path}?v=${assetHash(path)}`;
+}

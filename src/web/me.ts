@@ -3,6 +3,7 @@
 import type { DailyRow } from "../recap.ts";
 import type { ShareMonthMetrics } from "../share-report.ts";
 import { esc } from "./html.ts";
+import { assetUrl } from "./assets.ts";
 
 export interface MePageData {
   idNumber: string;
@@ -182,8 +183,8 @@ export function renderMePage(data: MePageData): string {
   <meta name="color-scheme" content="light dark">
   <meta name="robots" content="noindex, nofollow">
   <title>Rekap ${esc(data.name)} - ${esc(monthLabel(data.month))}</title>
-  <link rel="stylesheet" href="/assets/app.css">
-  <script type="module" src="/assets/me-menu.js"></script>
+  <link rel="stylesheet" href="${assetUrl("app.css")}">
+  <script type="module" src="${assetUrl("me-menu.js")}"></script>
 </head>
 <body class="share-page">
   <header class="topbar share-topbar">
